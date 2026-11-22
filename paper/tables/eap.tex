@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\caption{EAP (historical metric name) reports the paired loss between sealed and executable goal-irrelevant tools on 10 shared graphs.}
+\label{tab:eap}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}Xrrrrrr}
+\toprule
+Model & Executable & Sealed & EAP [95\% CI] & Sign-flip p & Holm p & +/0/- graphs \\
+\midrule
+DeepSeek & 7/10 & 9/10 & +20.0 pp [+0.0, +50.0] & 0.500 & 1.000 & 2/8/0 \\
+Kimi & 4/10 & 4/10 & +0.0 pp [-30.0, +30.0] & 1.000 & 1.000 & 1/8/1 \\
+GLM & 1/10 & 5/10 & +40.0 pp [+10.0, +70.0] & 0.125 & 0.625 & 4/6/0 \\
+MiniMax & 3/10 & 7/10 & +40.0 pp [+10.0, +70.0] & 0.125 & 0.625 & 4/6/0 \\
+Qwen & 6/10 & 8/10 & +20.0 pp [-20.0, +60.0] & 0.625 & 1.000 & 3/6/1 \\
+\bottomrule
+\end{tabularx}
+\par\parbox{\linewidth}{\raggedright\footnotesize Source: \texttt{results/\allowbreak{}funcbench-sealed-probe-analysis-20261101/\allowbreak{}eap/\allowbreak{}eap\_summary.csv}.}
+\par\parbox{\linewidth}{\raggedright\footnotesize Executable and sealed tools have identical names, descriptions, schemas, order, prompts, required graphs, and target values. Only runtime execution differs. Positive EAP means that sealing improved the exact success rate.}
+\end{table}

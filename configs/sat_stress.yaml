@@ -1,0 +1,42 @@
+experiment:
+  name: sat-stress
+  suite: hard
+  tasks:
+    - boolean_sat
+  datapoints_per_task: 6
+  list_sizes: [16]
+  num_variables_list: [16]
+  sat_types_list: [random_k, mixed, xor]
+  clause_ratios_list: [5.0]
+  folds: 1
+  seed: 20261029
+  temperature: 0.0
+  top_p: 1.0
+  max_tokens: 32768
+  range_min: 1
+  range_max: 100
+
+models:
+  - alias: deepseek-flash
+    enabled: true
+    base_url: https://api.deepseek.com
+    model: deepseek-flash
+    api_key_env: DEEPSEEK_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    extra_body:
+      reasoning_effort: low
+  - alias: deepseek-pro
+    enabled: true
+    base_url: https://api.deepseek.com
+    model: deepseek-v4-pro
+    api_key_env: DEEPSEEK_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    extra_body:
+      reasoning_effort: low
+
+budget:
+  max_requests_per_model: 30
+  max_total_requests: 60
+

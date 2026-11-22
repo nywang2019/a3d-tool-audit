@@ -1,0 +1,70 @@
+{
+  "run_name": "main20_five_models",
+  "analysis_dirs": [
+    "results\\funcbench-main20-analysis-20261030",
+    "results\\funcbench-minimax-main20-20261101T105025Z\\error_analysis"
+  ],
+  "trials": 200,
+  "models": [
+    "deepseek-flash",
+    "glm-5.3-flashx",
+    "kimi-k3.1-pro",
+    "minimax-m3.1-flash",
+    "qwen3.8-max"
+  ],
+  "distractor_modes": [
+    "connected_compatible",
+    "none"
+  ],
+  "distractor_counts": [
+    0,
+    5
+  ],
+  "graph_seeds": [
+    20264029,
+    20264030,
+    20264031,
+    20264032,
+    20264033,
+    20264034,
+    20264035,
+    20264036,
+    20264037,
+    20264038,
+    20264039,
+    20264040,
+    20264041,
+    20264042,
+    20264043,
+    20264044,
+    20264045,
+    20264046,
+    20264047,
+    20264048
+  ],
+  "graph_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "tool_gating": [
+    false
+  ]
+}

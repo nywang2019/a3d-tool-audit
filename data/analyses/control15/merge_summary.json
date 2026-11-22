@@ -1,0 +1,68 @@
+{
+  "run_name": "affordance_controls15_five_models",
+  "analysis_dirs": [
+    "results\\funcbench-main15-five-model-20261101",
+    "results\\funcbench-control-disconnected-20261030T133754Z\\error_analysis",
+    "results\\funcbench-control-incompatible-20261030T134725Z\\error_analysis",
+    "results\\funcbench-control-disconnected-extension15-20261101T085735Z\\error_analysis",
+    "results\\funcbench-control-incompatible-extension15-20261101T090905Z\\error_analysis",
+    "results\\funcbench-minimax-control-disconnected-20261101T113958Z\\error_analysis",
+    "results\\funcbench-minimax-control-incompatible-20261101T114402Z\\error_analysis"
+  ],
+  "trials": 300,
+  "models": [
+    "deepseek-flash",
+    "glm-5.3-flashx",
+    "kimi-k3.1-pro",
+    "minimax-m3.1-flash",
+    "qwen3.8-max"
+  ],
+  "distractor_modes": [
+    "connected_compatible",
+    "connected_incompatible",
+    "disconnected",
+    "none"
+  ],
+  "distractor_counts": [
+    0,
+    5
+  ],
+  "graph_seeds": [
+    20264029,
+    20264030,
+    20264031,
+    20264032,
+    20264033,
+    20264034,
+    20264035,
+    20264036,
+    20264037,
+    20264038,
+    20264039,
+    20264040,
+    20264041,
+    20264042,
+    20264043
+  ],
+  "graph_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "tool_gating": [
+    false
+  ],
+  "model_filter": null
+}

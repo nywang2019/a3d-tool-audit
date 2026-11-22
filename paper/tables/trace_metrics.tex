@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+\centering
+\caption{Structured tool-trace diagnostics for five model aliases on the 20-graph main experiment.}
+\label{tab:trace}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}Xrrrrrr}
+\toprule
+Model & Extra tools & Req. & Sel. & Order & Arg. & Fidelity \\
+\midrule
+DeepSeek & 0 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 \\
+DeepSeek & 5 & 0.938 & 0.750 & 0.970 & 0.883 & 0.885 \\
+Kimi & 0 & 1.000 & 1.000 & 1.000 & 0.850 & 0.963 \\
+Kimi & 5 & 0.938 & 0.660 & 1.000 & 0.839 & 0.859 \\
+GLM & 0 & 1.000 & 1.000 & 1.000 & 0.800 & 0.950 \\
+GLM & 5 & 0.762 & 0.578 & 1.000 & 0.828 & 0.792 \\
+MiniMax & 0 & 1.000 & 1.000 & 1.000 & 0.903 & 0.976 \\
+MiniMax & 5 & 0.938 & 0.628 & 0.988 & 0.888 & 0.860 \\
+Qwen & 0 & 1.000 & 1.000 & 1.000 & 0.925 & 0.981 \\
+Qwen & 5 & 0.900 & 0.693 & 0.988 & 0.975 & 0.889 \\
+\bottomrule
+\end{tabularx}
+\par\parbox{\linewidth}{\raggedright\footnotesize Source: \texttt{results/\allowbreak{}funcbench-main20-five-model-analysis-20261101/\allowbreak{}metric\_summary.csv}.}
+\par\parbox{\linewidth}{\raggedright\footnotesize Trace fidelity is the equal-weight mean of required recall, selection precision, dependency order, and argument score; it is diagnostic, not a replacement for exact success.}
+\end{table}

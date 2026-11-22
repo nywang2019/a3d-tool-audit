@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity analysis restricted to graphs solved without extra tools.}
+\label{tab:aspsolvable}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}Xrrrr}
+\toprule
+Model & Solvable graphs & ASP\_solvable [95\% CI] & Sign-flip p & Holm p \\
+\midrule
+DeepSeek & 15 & +20.0 pp [-3.3, +43.3] & 0.219 & 0.656 \\
+Kimi & 11 & +18.2 pp [-4.5, +40.9] & 0.312 & 0.656 \\
+GLM & 4 & +50.0 pp [+12.5, +87.5] & 0.250 & 0.656 \\
+MiniMax & 12 & +37.5 pp [+12.5, +62.5] & 0.047 & 0.234 \\
+Qwen & 12 & +25.0 pp [+0.0, +50.0] & 0.156 & 0.625 \\
+\bottomrule
+\end{tabularx}
+\par\parbox{\linewidth}{\raggedright\footnotesize Source: \texttt{results/\allowbreak{}funcbench-control-five-model-analysis-20261101/\allowbreak{}asp/\allowbreak{}asp\_summary.csv}.}
+\par\parbox{\linewidth}{\raggedright\footnotesize Small solvable subsets, especially for GLM, make this a sensitivity analysis rather than a primary outcome.}
+\end{table}

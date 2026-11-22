@@ -1,0 +1,172 @@
+"""
+Task-specific parsers for beyondbench package.
+
+These parsers provide robust, task-specific answer extraction for all easy suite tasks.
+They use the unified parsing utilities from beyondbench.utils.parsing as their foundation
+and shared extraction functions from beyondbench.parsers.common.
+
+Phase 1 additions:
+- UnifiedParser (core.py): configurable strategy-pipeline parser
+- strategies/: pluggable per-strategy modules
+- model_adapters.py: per-model output normalization
+- task_configs.py: per-task parser configuration
+"""
+
+# Import shared extraction functions
+from .common import (
+    extract_from_boxed_formats,
+    extract_from_explicit_statements,
+    clean_and_convert_to_number,
+    extract_from_last_line,
+    extract_from_latex_math,
+    extract_from_code_blocks,
+    extract_from_markdown_formatting,
+    extract_input_numbers_from_prompt,
+    is_valid_number,
+    is_input_number,
+)
+
+# Import unified parsing functions
+from ..utils.parsing import (
+    parse_boxed_answer,
+    parse_number,
+    parse_number_list,
+    parse_boolean,
+    parse_sorted_list,
+    parse_count,
+    parse_sum,
+    parse_index,
+    parse_comparison_result,
+    parse_arithmetic_result,
+    parse_statistical_result,
+    parse_sequence_result,
+    parse_boolean_result
+)
+
+# Phase 1: Unified parser imports
+from .core import UnifiedParser, parse_response
+from .core import get_unparseable_rate, reset_unparseable_stats, CONFIDENCE_THRESHOLD_LOW
+from .task_configs import ParserConfig, get_task_config, TASK_PARSER_CONFIGS
+from .model_adapters import get_adapter
+from .settings import set_parser_mode, get_parser_mode, PARSER_MODE
+
+# Import individual task parsers for backward compatibility
+from .absolute_difference_parsing import parse_absolute_difference_answer
+from .comparison_parsing import parse_comparison_result as parse_comparison_result_legacy
+from .division_parsing import parse_division_answer
+from .even_count_parsing import parse_even_count_answer
+from .find_maximum_parsing import parse_find_maximum_answer
+from .find_minimum_parsing import parse_find_minimum_answer
+from .multiplication_parsing import parse_multiplication_answer
+from .odd_count_parsing import parse_odd_count_answer
+from .sorting_parsing import parse_sorted_list as parse_sorted_list_legacy
+from .sum_parsing import parse_sum_answer
+from .mean_parsing import parse_mean_answer
+from .median_parsing import parse_median_answer
+from .mode_parsing import parse_mode_answer
+from .subtraction_parsing import parse_subtraction_answer
+
+# Phase 12: New list/scalar parsers
+from .list_parsing_helpers import parse_list_answer
+from .running_average_parsing import parse_running_average_answer
+from .cumulative_sum_parsing import parse_cumulative_sum_answer
+from .reverse_list_parsing import parse_reverse_list_answer
+from .rotate_list_parsing import parse_rotate_list_answer
+from .interleave_lists_parsing import parse_interleave_lists_answer
+from .set_intersection_parsing import parse_set_intersection_answer
+from .set_difference_parsing import parse_set_difference_answer
+from .moving_average_parsing import parse_moving_average_answer
+from .parity_check_parsing import parse_parity_check_answer
+from .element_frequency_parsing import parse_element_frequency_answer
+
+# Phase 2: New easy task parsers (15 newer easy tasks)
+from .second_maximum_parsing import parse_second_maximum_answer
+from .range_parsing import parse_range_answer
+from .index_of_maximum_parsing import parse_index_of_maximum_answer
+from .count_negative_parsing import parse_count_negative_answer
+from .count_unique_parsing import parse_count_unique_answer
+from .max_adjacent_difference_parsing import parse_max_adjacent_difference_answer
+from .count_greater_than_previous_parsing import parse_count_greater_than_previous_answer
+from .sum_of_max_indices_parsing import parse_sum_of_max_indices_answer
+from .count_palindromic_parsing import parse_count_palindromic_answer
+from .longest_increasing_subsequence_parsing import parse_longest_increasing_subsequence_answer
+from .sum_of_digits_parsing import parse_sum_of_digits_answer
+from .count_perfect_squares_parsing import parse_count_perfect_squares_answer
+from .alternating_sum_parsing import parse_alternating_sum_answer
+from .count_multiples_parsing import parse_count_multiples_answer
+from .local_maxima_count_parsing import parse_local_maxima_count_answer
+
+__all__ = [
+    # Phase 1: New unified parser (preferred)
+    "UnifiedParser",
+    "parse_response",
+    "ParserConfig",
+    "get_task_config",
+    "TASK_PARSER_CONFIGS",
+    "get_adapter",
+    # Phase 4: Confidence tracking
+    "get_unparseable_rate",
+    "reset_unparseable_stats",
+    "CONFIDENCE_THRESHOLD_LOW",
+
+    # Unified parsing functions (preferred)
+    "parse_boxed_answer",
+    "parse_number",
+    "parse_number_list",
+    "parse_boolean",
+    "parse_sorted_list",
+    "parse_count",
+    "parse_sum",
+    "parse_index",
+    "parse_comparison_result",
+    "parse_arithmetic_result",
+    "parse_statistical_result",
+    "parse_sequence_result",
+    "parse_boolean_result",
+
+    # Legacy task-specific parsers (for backward compatibility)
+    "parse_absolute_difference_answer",
+    "parse_comparison_result_legacy",
+    "parse_division_answer",
+    "parse_even_count_answer",
+    "parse_find_maximum_answer",
+    "parse_find_minimum_answer",
+    "parse_multiplication_answer",
+    "parse_odd_count_answer",
+    "parse_sorted_list_legacy",
+    "parse_sum_answer",
+    "parse_mean_answer",
+    "parse_median_answer",
+    "parse_mode_answer",
+    "parse_subtraction_answer",
+
+    # Phase 12: New list/scalar parsers
+    "parse_list_answer",
+    "parse_running_average_answer",
+    "parse_cumulative_sum_answer",
+    "parse_reverse_list_answer",
+    "parse_rotate_list_answer",
+    "parse_interleave_lists_answer",
+    "parse_set_intersection_answer",
+    "parse_set_difference_answer",
+    "parse_moving_average_answer",
+    "parse_parity_check_answer",
+    "parse_element_frequency_answer",
+
+    # Phase 2: Newer easy task parsers
+    "parse_second_maximum_answer",
+    "parse_range_answer",
+    "parse_index_of_maximum_answer",
+    "parse_count_negative_answer",
+    "parse_count_unique_answer",
+    "parse_max_adjacent_difference_answer",
+    "parse_count_greater_than_previous_answer",
+    "parse_sum_of_max_indices_answer",
+    "parse_count_palindromic_answer",
+    "parse_longest_increasing_subsequence_answer",
+    "parse_sum_of_digits_answer",
+    "parse_count_perfect_squares_answer",
+    "parse_alternating_sum_answer",
+    "parse_count_multiples_answer",
+    "parse_local_maxima_count_answer",
+]

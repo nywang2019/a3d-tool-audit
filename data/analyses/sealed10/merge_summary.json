@@ -1,0 +1,52 @@
+{
+  "run_name": "sealed_probe10_five_models",
+  "analysis_dirs": [
+    "results\\funcbench-main20-five-model-analysis-20261101",
+    "results\\funcbench-sealed10-20261101T133559Z\\error_analysis"
+  ],
+  "trials": 150,
+  "models": [
+    "deepseek-flash",
+    "glm-5.3-flashx",
+    "kimi-k3.1-pro",
+    "minimax-m3.1-flash",
+    "qwen3.8-max"
+  ],
+  "distractor_modes": [
+    "connected_compatible",
+    "none",
+    "sealed_compatible"
+  ],
+  "distractor_counts": [
+    0,
+    5
+  ],
+  "graph_seeds": [
+    20264029,
+    20264030,
+    20264031,
+    20264032,
+    20264033,
+    20264034,
+    20264035,
+    20264036,
+    20264037,
+    20264038
+  ],
+  "graph_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "tool_gating": [
+    false
+  ],
+  "model_filter": null
+}

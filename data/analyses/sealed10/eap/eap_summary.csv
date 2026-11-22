@@ -1,0 +1,6 @@
+model_alias,graphs,executable_correct,sealed_correct,eap,eap_ci_low,eap_ci_high,sign_flip_p,positive_graphs,zero_graphs,negative_graphs,holm_p
+deepseek-flash,10,7,9,0.2,0.0,0.5,0.5,2,8,0,1.0
+kimi-k3.1-pro,10,4,4,0.0,-0.3,0.3,1.0,1,8,1,1.0
+glm-5.3-flashx,10,1,5,0.4,0.1,0.7,0.125,4,6,0,0.625
+minimax-m3.1-flash,10,3,7,0.4,0.1,0.7,0.125,4,6,0,0.625
+qwen3.8-max,10,6,8,0.2,-0.2,0.6,0.625,3,6,1,1.0

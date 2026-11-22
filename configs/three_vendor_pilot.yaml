@@ -1,0 +1,50 @@
+experiment:
+  name: three-vendor-pilot
+  suite: hard
+  tasks:
+    - boolean_sat
+    - knapsack
+    - interval_scheduling
+  datapoints_per_task: 5
+  list_sizes: [8]
+  folds: 1
+  seed: 20261029
+  temperature: 1.0
+  top_p: 0.95
+  max_tokens: 32768
+  range_min: 1
+  range_max: 100
+
+models:
+  - alias: deepseek-flash
+    enabled: true
+    base_url: https://api.deepseek.com
+    model: deepseek-flash
+    api_key_env: DEEPSEEK_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    extra_body:
+      reasoning_effort: low
+  - alias: kimi-k3.1-pro
+    enabled: true
+    base_url: https://api.moonshot.cn/v1
+    model: kimi-k3.1-pro
+    api_key_env: MOONSHOT_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    extra_body:
+      reasoning_effort: low
+  - alias: glm-5.3
+    enabled: true
+    base_url: https://open.bigmodel.cn/api/paas/v4
+    model: glm-5.3
+    api_key_env: ZHIPU_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    extra_body:
+      reasoning_effort: low
+
+budget:
+  max_requests_per_model: 60
+  max_total_requests: 180
+

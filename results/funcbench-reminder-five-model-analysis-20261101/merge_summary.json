@@ -1,0 +1,37 @@
+{
+  "run_name": "reminder_five_models",
+  "analysis_dirs": [
+    "results\\funcbench-paired-intervention-20261030T100610Z\\error_analysis",
+    "results\\funcbench-minimax-reminder-20261101T115107Z\\error_analysis"
+  ],
+  "trials": 40,
+  "models": [
+    "deepseek-flash",
+    "glm-5.3-flashx",
+    "kimi-k3.1-pro",
+    "minimax-m3.1-flash",
+    "qwen3.8-max"
+  ],
+  "distractor_modes": [
+    "connected_compatible"
+  ],
+  "distractor_counts": [
+    5
+  ],
+  "graph_seeds": [
+    20262029,
+    20262030,
+    20262031,
+    20262032
+  ],
+  "graph_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "tool_gating": [
+    false
+  ],
+  "model_filter": null
+}

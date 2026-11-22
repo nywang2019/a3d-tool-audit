@@ -1,0 +1,17 @@
+﻿[
+    {
+        "file":  "applied_intelligence_source.zip",
+        "bytes":  554131,
+        "sha256":  "843A912C3A6CD7C09DECD29F58EF8B9BFBEC094BFFA6FD9D51F4912F0BC948C5"
+    },
+    {
+        "file":  "applied_intelligence_supplement.zip",
+        "bytes":  56121,
+        "sha256":  "AFEAB5210BCD12C1B819A1857D90224C91DFB28F9390D793962D9AA4456CE49F"
+    },
+    {
+        "file":  "main.pdf",
+        "bytes":  783130,
+        "sha256":  "64D3CC00FD9ACA41F1E32C152AF0EAE3190F08D670A7A177887E4F56C173A862"
+    }
+]

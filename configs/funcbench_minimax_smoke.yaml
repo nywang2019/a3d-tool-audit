@@ -1,0 +1,36 @@
+experiment:
+  name: funcbench-minimax-smoke
+  seed: 20261029
+  core_nodes: 4
+  depths: [3]
+  distractor_counts: [0, 5]
+  graph_indices: [0, 1]
+  paired_core_graph: true
+  stable_tool_order: true
+  temperature: 1.0
+  top_p: 0.95
+  max_tokens: 8192
+  use_types: true
+  use_subtypes: true
+  num_supertypes: 5
+  show_variable_names: false
+  rename_variables: false
+  num_noise_inputs: 0
+
+models:
+  - alias: minimax-m3.1-flash
+    enabled: true
+    # Mainland MiniMax platform. Use https://api.minimax.io/v1 for a
+    # platform.minimax.io international key.
+    base_url: https://api.minimaxi.com/v1
+    model: MiniMax-M3.1-Flash
+    api_key_env: MINIMAX_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    trust_env: false
+    extra_body:
+      reasoning_effort: low
+
+budget:
+  max_requests_per_model: 40
+  max_total_requests: 40

@@ -1,0 +1,70 @@
+experiment:
+  name: main
+  suite: easy
+  tasks:
+    - sorting
+    - sum
+    - median
+    - longest_increasing_subsequence
+    - standard_deviation
+    - fibonacci_sequence
+    - geometric_sequence
+    - polynomial_evaluation
+    - logical_operations
+    - combinatorics
+  datapoints_per_task: 15
+  list_sizes: [8]
+  folds: 1
+  seed: 20261029
+  temperature: 0.0
+  top_p: 1.0
+  max_tokens: 32768
+  range_min: 1
+  range_max: 100
+
+models:
+  - alias: deepseek
+    enabled: false
+    base_url: https://api.deepseek.com/v1
+    model: REPLACE_WITH_PROVIDER_MODEL_ID
+    api_key_env: DEEPSEEK_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    extra_body: {}
+  - alias: qwen
+    enabled: false
+    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model: REPLACE_WITH_PROVIDER_MODEL_ID
+    api_key_env: DASHSCOPE_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    extra_body: {}
+  - alias: glm
+    enabled: false
+    base_url: https://open.bigmodel.cn/api/paas/v4
+    model: REPLACE_WITH_PROVIDER_MODEL_ID
+    api_key_env: ZHIPU_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    extra_body: {}
+  - alias: kimi
+    enabled: false
+    base_url: https://api.moonshot.cn/v1
+    model: REPLACE_WITH_PROVIDER_MODEL_ID
+    api_key_env: MOONSHOT_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    extra_body: {}
+  - alias: doubao
+    enabled: false
+    base_url: https://ark.cn-beijing.volces.com/api/v3
+    model: REPLACE_WITH_PROVIDER_MODEL_ID
+    api_key_env: ARK_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    extra_body: {}
+
+budget:
+  max_requests_per_model: 180
+  max_total_requests: 1_000
+

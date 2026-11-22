@@ -1,0 +1,46 @@
+experiment:
+  name: pretest
+  suite: easy
+  tasks:
+    - sorting
+    - sum
+    - median
+    - longest_increasing_subsequence
+    - standard_deviation
+    - fibonacci_sequence
+    - geometric_sequence
+    - polynomial_evaluation
+    - logical_operations
+    - combinatorics
+  datapoints_per_task: 5
+  list_sizes: [8]
+  folds: 1
+  seed: 20261029
+  temperature: 0.0
+  top_p: 1.0
+  max_tokens: 4096
+  range_min: 1
+  range_max: 100
+
+models:
+  - alias: deepseek
+    enabled: true
+    base_url: https://api.deepseek.com
+    model: deepseek-flash
+    api_key_env: DEEPSEEK_API_KEY
+    timeout_seconds: 120
+    max_retries: 4
+    extra_body: {}
+  - alias: qwen
+    enabled: false
+    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model: REPLACE_WITH_PROVIDER_MODEL_ID
+    api_key_env: DASHSCOPE_API_KEY
+    timeout_seconds: 120
+    max_retries: 4
+    extra_body: {}
+
+budget:
+  max_requests_per_model: 80
+  max_total_requests: 160
+

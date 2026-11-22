@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the associated manuscript."
+title: "A3D Tool Audit"
+type: software
+authors:
+  - family-names: Wang
+    given-names: Nianyi
+    orcid: "https://orcid.org/0000-0003-2587-1438"
+date-released: 2026-11-22
+url: "https://github.com/nywang2019/a3d-tool-audit"
+license:
+  - MIT
+  - CC-BY-4.0
+preferred-citation:
+  type: article
+  title: "The Wrong Tool Looks Right: Auditing Executable Goal-Irrelevant Tools in Multi-Step Tool Use"
+  authors:
+    - family-names: Wang
+      given-names: Nianyi
+      orcid: "https://orcid.org/0000-0003-2587-1438"
+  year: 2026
+

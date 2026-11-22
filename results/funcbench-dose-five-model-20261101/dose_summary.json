@@ -1,0 +1,22 @@
+{
+  "baseline_analysis": "results\\funcbench-main15-five-model-20261101",
+  "dose_analyses": [
+    "results\\funcbench-paired-dose2-20261030T130914Z\\error_analysis",
+    "results\\funcbench-paired-dose2-extension-20261030T141758Z\\error_analysis",
+    "results\\funcbench-minimax-dose2-20261101T113612Z\\error_analysis"
+  ],
+  "passed": true,
+  "validation_errors": [],
+  "models": [
+    "deepseek-flash",
+    "glm-5.3-flashx",
+    "kimi-k3.1-pro",
+    "minimax-m3.1-flash",
+    "qwen3.8-max"
+  ],
+  "conditions": [
+    0,
+    2,
+    5
+  ]
+}

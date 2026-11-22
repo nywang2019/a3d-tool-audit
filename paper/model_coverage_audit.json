@@ -1,0 +1,81 @@
+{
+  "checks": {
+    "affordance_five_models": true,
+    "asp_five_models": true,
+    "asp_solvable_five_models": true,
+    "design_table_auxiliary_five": true,
+    "design_table_has_models_column": true,
+    "design_table_main_five": true,
+    "diagnostic_cases_five_models": true,
+    "dose_five_models": true,
+    "eap_five_models": true,
+    "interventions_five_models": true,
+    "main_effects_five_models": true,
+    "main_metrics_five_models": true,
+    "main_table_five_models": true,
+    "main_trials_200": true,
+    "repeatability_five_models": true,
+    "trace_table_five_models": true,
+    "valid_trace_table_five_models": true
+  },
+  "coverage": {
+    "affordance_controls": [
+      "deepseek-flash",
+      "glm-5.3-flashx",
+      "kimi-k3.1-pro",
+      "minimax-m3.1-flash",
+      "qwen3.8-max"
+    ],
+    "affordance_specific_penalty": [
+      "deepseek-flash",
+      "glm-5.3-flashx",
+      "kimi-k3.1-pro",
+      "minimax-m3.1-flash",
+      "qwen3.8-max"
+    ],
+    "dose_response": [
+      "deepseek-flash",
+      "glm-5.3-flashx",
+      "kimi-k3.1-pro",
+      "minimax-m3.1-flash",
+      "qwen3.8-max"
+    ],
+    "gating_and_reminder": [
+      "deepseek-flash",
+      "glm-5.3-flashx",
+      "kimi-k3.1-pro",
+      "minimax-m3.1-flash",
+      "qwen3.8-max"
+    ],
+    "main_paired_effect": [
+      "deepseek-flash",
+      "glm-5.3-flashx",
+      "kimi-k3.1-pro",
+      "minimax-m3.1-flash",
+      "qwen3.8-max"
+    ],
+    "repeatability": [
+      "deepseek-flash",
+      "glm-5.3-flashx",
+      "kimi-k3.1-pro",
+      "minimax-m3.1-flash",
+      "qwen3.8-max"
+    ],
+    "sealed_twin_probe": [
+      "deepseek-flash",
+      "glm-5.3-flashx",
+      "kimi-k3.1-pro",
+      "minimax-m3.1-flash",
+      "qwen3.8-max"
+    ],
+    "trace_and_error_analysis": [
+      "deepseek-flash",
+      "glm-5.3-flashx",
+      "kimi-k3.1-pro",
+      "minimax-m3.1-flash",
+      "qwen3.8-max"
+    ]
+  },
+  "failed_checks": [],
+  "passed": true
+}

@@ -1,0 +1,84 @@
+{
+  "definition": "EAP = mean(Y_sealed - Y_executable)",
+  "models": [
+    "deepseek-flash",
+    "kimi-k3.1-pro",
+    "glm-5.3-flashx",
+    "minimax-m3.1-flash",
+    "qwen3.8-max"
+  ],
+  "graphs_per_model": 10,
+  "schema_match_graphs": 10,
+  "summary": [
+    {
+      "model_alias": "deepseek-flash",
+      "graphs": 10,
+      "executable_correct": 7,
+      "sealed_correct": 9,
+      "eap": 0.2,
+      "eap_ci_low": 0.0,
+      "eap_ci_high": 0.5,
+      "sign_flip_p": 0.5,
+      "positive_graphs": 2,
+      "zero_graphs": 8,
+      "negative_graphs": 0,
+      "holm_p": 1.0
+    },
+    {
+      "model_alias": "kimi-k3.1-pro",
+      "graphs": 10,
+      "executable_correct": 4,
+      "sealed_correct": 4,
+      "eap": 0.0,
+      "eap_ci_low": -0.3,
+      "eap_ci_high": 0.3,
+      "sign_flip_p": 1.0,
+      "positive_graphs": 1,
+      "zero_graphs": 8,
+      "negative_graphs": 1,
+      "holm_p": 1.0
+    },
+    {
+      "model_alias": "glm-5.3-flashx",
+      "graphs": 10,
+      "executable_correct": 1,
+      "sealed_correct": 5,
+      "eap": 0.4,
+      "eap_ci_low": 0.1,
+      "eap_ci_high": 0.7,
+      "sign_flip_p": 0.125,
+      "positive_graphs": 4,
+      "zero_graphs": 6,
+      "negative_graphs": 0,
+      "holm_p": 0.625
+    },
+    {
+      "model_alias": "minimax-m3.1-flash",
+      "graphs": 10,
+      "executable_correct": 3,
+      "sealed_correct": 7,
+      "eap": 0.4,
+      "eap_ci_low": 0.1,
+      "eap_ci_high": 0.7,
+      "sign_flip_p": 0.125,
+      "positive_graphs": 4,
+      "zero_graphs": 6,
+      "negative_graphs": 0,
+      "holm_p": 0.625
+    },
+    {
+      "model_alias": "qwen3.8-max",
+      "graphs": 10,
+      "executable_correct": 6,
+      "sealed_correct": 8,
+      "eap": 0.2,
+      "eap_ci_low": -0.2,
+      "eap_ci_high": 0.6,
+      "sign_flip_p": 0.625,
+      "positive_graphs": 3,
+      "zero_graphs": 6,
+      "negative_graphs": 1,
+      "holm_p": 1.0
+    }
+  ]
+}

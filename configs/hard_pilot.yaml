@@ -1,0 +1,34 @@
+experiment:
+  name: hard-pilot
+  suite: hard
+  tasks:
+    - boolean_sat
+    - knapsack
+    - coin_change
+    - edit_distance
+    - interval_scheduling
+  datapoints_per_task: 5
+  list_sizes: [8]
+  folds: 1
+  seed: 20261029
+  temperature: 0.0
+  top_p: 1.0
+  max_tokens: 32768
+  range_min: 1
+  range_max: 100
+
+models:
+  - alias: deepseek
+    enabled: true
+    base_url: https://api.deepseek.com
+    model: deepseek-flash
+    api_key_env: DEEPSEEK_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    extra_body:
+      reasoning_effort: low
+
+budget:
+  max_requests_per_model: 120
+  max_total_requests: 120
+

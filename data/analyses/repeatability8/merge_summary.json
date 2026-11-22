@@ -1,0 +1,47 @@
+{
+  "run_name": "repeatability8_five_models",
+  "analysis_dirs": [
+    "results\\funcbench-paired-repeatability8-20261101T081739Z\\error_analysis",
+    "results\\funcbench-minimax-repeatability8-20261101T115312Z\\error_analysis"
+  ],
+  "trials": 80,
+  "models": [
+    "deepseek-flash",
+    "glm-5.3-flashx",
+    "kimi-k3.1-pro",
+    "minimax-m3.1-flash",
+    "qwen3.8-max"
+  ],
+  "distractor_modes": [
+    "connected_compatible",
+    "none"
+  ],
+  "distractor_counts": [
+    0,
+    5
+  ],
+  "graph_seeds": [
+    20264029,
+    20264030,
+    20264031,
+    20264032,
+    20264033,
+    20264034,
+    20264035,
+    20264036
+  ],
+  "graph_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "tool_gating": [
+    false
+  ],
+  "model_filter": null
+}

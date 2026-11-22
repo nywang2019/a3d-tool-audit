@@ -1,0 +1,6 @@
+Model,Original 0,Repeat 0,Pooled 0,Original 5,Repeat 5,Pooled 5,Original delta pp,Repeat delta pp,Pooled delta pp
+DeepSeek,8,8,16,5,4,9,-37.5,-50.0,-43.8
+Kimi,5,5,10,3,1,4,-25.0,-50.0,-37.5
+GLM,3,2,5,1,2,3,-25.0,+0.0,-12.5
+MiniMax,7,7,14,3,4,7,-50.0,-37.5,-43.8
+Qwen,6,6,12,4,3,7,-25.0,-37.5,-31.2

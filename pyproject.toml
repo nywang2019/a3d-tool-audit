@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "domestic-llm-evaluation"
+version = "0.1.0"
+description = "Reproducible API-only evaluation of domestic LLMs on dynamic generated reasoning tasks"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "click>=8.1",
+  "jsonschema>=4.23",
+  "matplotlib>=3.9",
+  "numpy>=2.0",
+  "pandas>=2.2",
+  "psutil>=6.0",
+  "python-dotenv>=1.0",
+  "pyyaml>=6.0",
+  "requests>=2.32",
+  "scipy>=1.14",
+  "tiktoken>=0.8",
+  "tqdm>=4.67",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.17"]
+funcbench = ["networkx==3.5"]
+
+[project.scripts]
+llm-eval = "llm_eval.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+

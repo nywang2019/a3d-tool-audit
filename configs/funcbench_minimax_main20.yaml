@@ -1,0 +1,34 @@
+experiment:
+  name: funcbench-minimax-main20
+  seed: 20261029
+  core_nodes: 4
+  depths: [3]
+  distractor_counts: [0, 5]
+  graph_indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  paired_core_graph: true
+  stable_tool_order: true
+  temperature: 1.0
+  top_p: 0.95
+  max_tokens: 8192
+  use_types: true
+  use_subtypes: true
+  num_supertypes: 5
+  show_variable_names: false
+  rename_variables: false
+  num_noise_inputs: 0
+
+models:
+  - alias: minimax-m3.1-flash
+    enabled: true
+    base_url: https://api.minimaxi.com/v1
+    model: MiniMax-M3.1-Flash
+    api_key_env: MINIMAX_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    trust_env: false
+    extra_body:
+      reasoning_effort: low
+
+budget:
+  max_requests_per_model: 320
+  max_total_requests: 320

@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\caption{Per-model agreement between the original and repeated sample.}
+\label{tab:repeatabilityagreement}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}Xrrrrrr}
+\toprule
+Model & Original & Repeat & Same correctness & Kappa & Same category & Repeat effect 95\% CI \\
+\midrule
+DeepSeek & 13/16 & 12/16 & 15/16 & 0.818 & 14/16 & -87.5, -12.5 \\
+Kimi & 8/16 & 6/16 & 14/16 & 0.75 & 13/16 & -87.5, -12.5 \\
+GLM & 4/16 & 4/16 & 14/16 & 0.667 & 9/16 & +0.0, +0.0 \\
+MiniMax & 10/16 & 11/16 & 11/16 & 0.31 & 10/16 & -87.5, +12.5 \\
+Qwen & 10/16 & 9/16 & 13/16 & 0.613 & 10/16 & -75.0, +12.5 \\
+\bottomrule
+\end{tabularx}
+\par\parbox{\linewidth}{\raggedright\footnotesize Source: \texttt{paper/\allowbreak{}tables/\allowbreak{}repeatability\_agreement\_full.csv}.}
+\par\parbox{\linewidth}{\raggedright\footnotesize Agreement compares the same graph/condition/model cells. The repeat effect interval is a paired graph bootstrap interval in percentage points.}
+\end{table}

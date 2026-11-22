@@ -1,0 +1,16 @@
+{
+  "correctness_kappa": 0.6729559748427673,
+  "input_tokens": 489718,
+  "output_tokens": 55384,
+  "reasoning_tokens": 36776,
+  "requests": 447,
+  "run_roots": [
+    "results\\funcbench-paired-repeatability8-20261101T081739Z",
+    "results\\funcbench-minimax-repeatability8-20261101T115312Z"
+  ],
+  "same_correctness": "67/80",
+  "same_final_answer_signature": "49/80",
+  "same_primary_category": "56/80",
+  "technical_failures": 0,
+  "trials": 80
+}

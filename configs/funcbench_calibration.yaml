@@ -1,0 +1,65 @@
+experiment:
+  name: funcbench-calibration
+  seed: 20261029
+  core_nodes: 4
+  depths: [1, 2, 3]
+  distractor_counts: [0, 5]
+  temperature: 1.0
+  top_p: 0.95
+  max_tokens: 8192
+  use_types: true
+  use_subtypes: true
+  num_supertypes: 5
+  show_variable_names: false
+  rename_variables: false
+  num_noise_inputs: 0
+
+models:
+  - alias: deepseek-flash
+    enabled: true
+    base_url: https://api.deepseek.com
+    model: deepseek-flash
+    api_key_env: DEEPSEEK_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    trust_env: false
+    extra_body:
+      reasoning_effort: low
+
+  - alias: kimi-k3.1-pro
+    enabled: true
+    base_url: https://api.moonshot.cn/v1
+    model: kimi-k3.1-pro
+    api_key_env: MOONSHOT_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    trust_env: false
+    extra_body:
+      reasoning_effort: low
+
+  - alias: glm-5.3-flashx
+    enabled: true
+    base_url: https://open.bigmodel.cn/api/paas/v4
+    model: glm-5.3-flashx
+    api_key_env: ZHIPU_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    trust_env: false
+    extra_body:
+      reasoning_effort: low
+
+  - alias: qwen3.8-max
+    enabled: true
+    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model: qwen3.8-max
+    api_key_env: DASHSCOPE_API_KEY
+    timeout_seconds: 300
+    max_retries: 2
+    trust_env: false
+    extra_body:
+      reasoning_effort: low
+
+budget:
+  max_requests_per_model: 100
+  max_total_requests: 400
+

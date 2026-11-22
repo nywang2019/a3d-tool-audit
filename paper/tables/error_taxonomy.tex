@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\caption{Rule-derived primary categories in the 200 main-experiment trials for five model aliases. All table cells sum to 200 trials.}
+\label{tab:errors}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}Xrr}
+\toprule
+Primary category & 0 extra tools & 5 executable goal-irrelevant tools \\
+\midrule
+Correct & 73 & 45 \\
+Wrong argument value & 14 & 9 \\
+Premature dependency & 13 & 16 \\
+Irrelevant function call & 0 & 22 \\
+Premature final answer & 0 & 7 \\
+Technical/budget failure & 0 & 1 \\
+\bottomrule
+\end{tabularx}
+\par\parbox{\linewidth}{\raggedright\footnotesize Source: \texttt{results/\allowbreak{}funcbench-main20-five-model-analysis-20261101/\allowbreak{}trial\_failures.csv}.}
+\par\parbox{\linewidth}{\raggedright\footnotesize Each trial receives one primary category. Counts are diagnostic and are not human-validated labels.}
+\end{table}

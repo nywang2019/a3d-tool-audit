@@ -1,0 +1,16 @@
+# Minimal API-only dependencies. BeyondBench is installed separately with
+# --no-deps by scripts/setup.ps1 so that Torch/vLLM are not pulled in.
+click>=8.1
+jsonschema>=4.23
+matplotlib>=3.9
+networkx==3.5
+numpy>=2.0
+pandas>=2.2
+psutil>=6.0
+python-dotenv>=1.0
+pyyaml>=6.0
+requests>=2.32
+scipy>=1.14
+tiktoken>=0.8
+tqdm>=4.67
+

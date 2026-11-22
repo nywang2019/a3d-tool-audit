@@ -1,0 +1,502 @@
+\documentclass[twoside,11pt,preprint]{article}
+
+\usepackage{dmlr2e}
+\usepackage{booktabs}
+\usepackage{url}
+
+\input{generated_numbers.tex}
+
+\ShortHeadings{Affordance-Controlled Tool-Use Evaluation}{Authors withheld}
+\firstpageno{1}
+
+\begin{document}
+
+\title{Affordance-Controlled Evaluation of Multi-Step Tool Use:\\
+Connected-Compatible Distractors and Model-Specific Degradation}
+
+\author{Author information withheld in working draft}
+
+\maketitle
+
+\begin{abstract}
+Multi-step function-calling evaluations often report final success for a task
+distribution in which many properties vary at once: the number of exposed tools,
+their structural relation to the goal, and whether an irrelevant branch is
+actually executable. Building on the hidden dependency-graph mechanism of
+FuncBenchGen, we study a narrower measurement question. When the required
+dependency subgraph, target truth, inputs, prompt, and core tool order are held
+fixed, does adding connected, type-compatible, executable distractors degrade
+multi-step tool use? We evaluate five API-served models on \MainGraphClusters{}
+independently generated depth-three graphs. Five connected-compatible
+distractors are associated with a decline from \DeepSeekBaseCorrect/\DeepSeekBaseTrials{}
+to \DeepSeekDistCorrect/\DeepSeekDistTrials{} for DeepSeek Flash,
+\KimiBaseCorrect/\KimiBaseTrials{} to \KimiDistCorrect/\KimiDistTrials{} for
+Kimi K3.1 Pro, \GLMBaseCorrect/\GLMBaseTrials{} to
+\GLMDistCorrect/\GLMDistTrials{} for GLM-5.3-Flashx,
+\MiniMaxBaseCorrect/\MiniMaxBaseTrials{} to
+\MiniMaxDistCorrect/\MiniMaxDistTrials{} for MiniMax-M3.1-Flash, and
+\QwenBaseCorrect/\QwenBaseTrials{} to \QwenDistCorrect/\QwenDistTrials{} for
+Qwen3.8-Max. These are descriptive declines of approximately 30, 30, 10, 40, and 30
+percentage points, respectively. The model ordering does not reverse, and a
+graph-cluster permutation test does not establish model-interaction
+heterogeneity (p=\InteractionP). On 15 shared control graphs, five
+disconnected tools and five connected-incompatible tools do not reproduce the
+degradation observed for five connected-compatible tools, although the control
+sample remains bounded. Structured traces show lower function-selection precision under
+distractors, while errors include wrong arguments, premature dependency use,
+irrelevant calls, and premature final answers. A 0/2/5 study on 15 graphs is more
+consistent with model-specific plateaus or threshold-like behavior than with a
+common linear dose response. Neither a state reminder nor prerequisite hiding
+improves success. The study is a controlled diagnostic evaluation, not a
+comprehensive model ranking, a claim of contamination immunity, or evidence of a
+successful repair.
+\end{abstract}
+
+\begin{keywords}
+multi-step function calling, tool-use evaluation, procedural benchmark
+generation, counterfactual data design, distractor affordance, structured tool
+traces
+\end{keywords}
+
+\section{Introduction}
+
+Large language models increasingly call external functions over multiple turns.
+A successful trajectory must do more than emit syntactically valid calls. It
+must choose a goal-relevant function, supply values produced by earlier calls,
+respect dependencies, avoid irrelevant branches, and terminate after the target
+is reached. Benchmarks for API use have therefore examined API selection,
+argument construction, planning, and multi-tool execution at different levels
+of realism and scale \citep{li2023apibank,qin2023toolllm,patil2023gorilla,
+shen2024taskbench}. Yet final success still conflates several properties of a
+task's data design.
+
+Procedurally generated benchmarks reduce exact instance reuse and make some
+complexity variables controllable
+\citep{srivastava2025beyondbench,li2025c2leva,chen2025dycodeeval}. They do not
+by themselves establish which change made a task harder. In particular, adding
+candidate tools changes the number of options, the number of connected graph
+nodes, the availability of their input types, and whether an incorrect branch can
+be executed. A comparison between zero and many distractors therefore mixes
+candidate-set size with \emph{affordance}: the extent to which the environment
+affords plausible but goal-irrelevant actions.
+
+FuncBenchGen already turns tool use into traversal of a hidden
+function-dependency DAG and already includes type-compatible distractor
+functions \citep{maekawa2025funcbenchgen}. Our contribution is not the invention
+of that generator. We ask whether a stricter counterfactual design around the
+same required subgraph can isolate the role of executable connected distractors,
+and whether trace-level outcomes reveal how the resulting failures are
+distributed. We also test two intuitive state-support interventions rather than
+assuming that a better prompt or a smaller candidate set must repair the
+problem.
+
+This evaluation is deliberately narrow. It uses one function-dependency task
+family, fixed dependency depth three, five API-served model aliases, and one
+temperature-1 generation for the main graph/condition/model cells. It therefore
+supports statements about this controlled data construction and these observed
+runs, not a universal ranking or a stable law of model capability.
+
+Our contributions are: (i) a deterministic, strictly paired counterfactual
+construction in which the required dependency subgraph, target truth, prompt,
+and core tool order are preserved while distractor affordance is changed; (ii) a
+shared-graph comparison of disconnected and connected-incompatible tools against
+connected-compatible executable tools; (iii) structured trace diagnostics that
+separate selection, dependency order, and argument validity; and (iv) two
+negative intervention results.
+
+\section{Related Work}
+
+\paragraph{Dynamic evaluation and data reuse.}
+Static benchmarks can saturate and may overlap with model training data. Dynamic
+generation is one response: BeyondBench constructs algorithmic reasoning tasks
+with large variation spaces \citep{srivastava2025beyondbench}; C2LEVA targets
+contamination-resistant language evaluation \citep{li2025c2leva}; and DyCodeEval
+generates code benchmark variants \citep{chen2025dycodeeval}. A recent survey
+organizes the progression from static to dynamic contamination evaluation
+\citep{chen2025contamination}. Procedural novelty does not prove that a model has
+not learned the distribution or the generator's patterns. We therefore use
+``dynamic'' and ``paired,'' not ``contamination-free,'' as the evidential claim.
+
+\paragraph{Tool-use evaluation.}
+API-Bank evaluates planning, retrieval, and API calling with annotated dialogues
+and executable tools \citep{li2023apibank}. ToolLLM and ToolBench emphasize
+broad real-world API coverage and multi-tool trajectories
+\citep{qin2023toolllm}. Gorilla studies API-call generation and retrieval against
+changing documentation \citep{patil2023gorilla}. TaskBench factors task
+automation into decomposition, tool selection, and parameter prediction
+\citep{shen2024taskbench}. These benchmarks make clear that tool use is not a
+single capability. Our endpoint is similarly structured, but the present paper
+focuses on a data-design intervention: holding the required task fixed while
+varying whether extra accessible branches are connected and executable.
+
+\paragraph{Controlled dependency graphs and trace fidelity.}
+FuncBenchGen is the closest methodological predecessor
+\citep{maekawa2025funcbenchgen}. It casts function calling as traversal over a
+hidden function-dependency graph and controls graph size, depth, and distractors.
+SCALER, currently a preprint, motivates complexity-response curves and
+reasoning-trace fidelity \citep{ghajari2025scaler}. We adapt the idea that
+process correctness should be reported separately from final success to
+structured tool-call records. This paper does not replicate SCALER's task suite
+and does not treat an equal-weight trace score as ground truth.
+
+\section{Strictly Paired Evaluation}
+
+\subsection{Required graph and invariant checks}
+We use the locked FuncBenchGen source at commit
+\texttt{0729e2567dfaee1e53262ba9bfd5ba6a4b4e4343}. For each graph seed, the
+generator first creates a core dependency graph and fixes variables, input
+types, tool schemas, target closure, prompt, and target truth. A distractor
+condition then adds tools to that core instance. The main comparison uses zero
+and five connected-compatible distractors.
+
+Every formal pair records a full graph fingerprint and a
+\texttt{required\_graph\_fingerprint}. The pair audit requires the
+required-function closure, target truth, inputs, prompt, and core tool order to
+match. The implementation sorts internal set-derived structure before
+construction, making the generated graph deterministic across Python hash seeds.
+We treat a completed run with mixed-process graph generation as invalid for
+paired analysis and exclude it from all reported effects.
+
+This audit concerns the \emph{required} subgraph. Connected distractors
+intentionally add nodes and edges outside that closure. ``Same graph'' in this
+paper therefore means same required graph and task, not literally identical
+visible tool sets.
+
+\subsection{Distractor affordance conditions}
+We distinguish four conditions. \emph{None} adds no distractors.
+\emph{Disconnected} adds five visible tools without connecting edges to the
+current executable task and without a usable input from the current state.
+\emph{Connected-incompatible} adds five connected tools that require an input
+type or value unavailable in the current state. \emph{Connected-compatible}
+adds five connected tools with type-compatible inputs, so an irrelevant branch
+can be executed.
+
+These controls do not fully factor every graph property, and edge placement can
+differ across conditions. They do distinguish five additional tools from five
+additional tools that are connected and executable.
+
+\subsection{Models and calling configuration}
+The evaluated service aliases are DeepSeek Flash, Kimi K3.1 Pro,
+GLM-5.3-Flashx, MiniMax-M3.1-Flash, and Qwen3.8-Max, run on 2026-10-29,
+2026-10-30, and 2026-11-01. Calls use the
+providers' direct endpoints with \texttt{trust\_env=false} to avoid
+system-proxy confounding. The common configuration is temperature 1.0, top-p
+0.95, a maximum of 8192 output tokens, low reasoning effort where supported, a
+300-second timeout, and at most two retries. These aliases are not immutable
+model snapshots.
+
+\subsection{Outcomes and statistical analysis}
+The primary metric is exact success: the final answer must match the
+program-computed target. End-to-end failures remain failures, including an empty
+technical response. We report Wilson intervals for condition-level proportions,
+graph-level paired bootstrap intervals for condition differences, and exact
+McNemar tests on discordant graph pairs. We apply Holm correction across the five
+main-model tests as a multiplicity sensitivity check. Cross-model effect
+heterogeneity is tested with a graph-cluster permutation procedure. The
+interaction result is exploratory because the design has five models and
+\MainGraphClusters{} graph clusters.
+
+\subsection{Affordance-Specific Penalty}
+For each model \(m\) and graph \(g\), let \(Y_D,Y_I,Y_C\in\{0,1\}\) denote exact
+success with five disconnected, connected-incompatible, and
+connected-compatible distractors. We define
+\begin{equation}
+a_{m,g}=\frac{Y_D+Y_I}{2}-Y_C,
+\qquad
+\operatorname{ASP}_m=100\,\mathbb{E}_g[a_{m,g}].
+\end{equation}
+ASP is a secondary graph-matched contrast in percentage points. We report its
+two components, graph-bootstrap intervals, exact sign-flip tests, and Holm
+correction across five models. The solvable-subset version is only a
+sensitivity analysis.
+
+\subsection{Schema-matched sealed-twin probe}
+Executable and sealed conditions expose identical prompts, tool names,
+descriptions, schemas, order, required graphs, and targets. The sealed condition
+only returns an unavailable-tool message when a distractor is called. With
+\(Y_E,Y_S\in\{0,1\}\), we report
+\(\operatorname{EAP}_m=100\,\mathbb{E}_g[Y_S-Y_E]\), where EAP abbreviates
+Executable-Affordance Penalty.
+
+\subsection{Structured traces}
+For every trial we compute required recall, selection precision,
+dependency-order score, argument score, and an equal-weight trace-fidelity
+mean. The analyzer also assigns one primary category: correct, wrong argument
+value, premature dependency use, irrelevant function, premature final answer,
+or technical/budget failure. These labels are deterministic artifacts of the
+released analysis code and have not yet undergone independent human review.
+
+\section{Experimental Design}
+
+The main experiment contains \MainGraphClusters{} independent depth-three graph
+clusters, two endpoint conditions, and five models: 200 attempts. Five
+additional graphs extend the original 15-graph run. The dose analysis uses 15
+shared graphs at 0, 2, and 5 distractors: 225 condition-level attempts, of which
+the 0 and 5 cells reuse main results. The affordance control contains 15
+shared graphs and four conditions: 300 attempts. The gating intervention
+compares ungated and gated connected-compatible conditions on eight shared
+graphs: 80 attempts. The state reminder uses four shared graphs and two prompts:
+40 attempts.
+
+These run families partially reuse baseline and connected-compatible cells.
+Their trial counts are not sums of independent task instances. The number of
+independent graph clusters is the relevant unit for generalization: 20 for the
+main effect, 15 for dose and affordance controls, eight for gating, and four for
+the reminder.
+
+The outcome tables are generated directly from the canonical result summaries by
+\texttt{paper/scripts/build\_paper\_assets.py}. No provider request was made
+while preparing this manuscript.
+
+\section{Results}
+
+\subsection{Main effect on shared graphs}
+\input{../tables/main20_effect.tex}
+
+Five connected-compatible distractors are associated with a lower observed
+success rate for every model. DeepSeek, Kimi, and Qwen each decline by 30
+percentage points; GLM declines by 10 points from a much lower baseline. The
+paired graph-bootstrap intervals exclude zero for every model except GLM.
+Exact McNemar p-values are
+\DeepSeekMcNemarP, \KimiMcNemarP, \GLMMcNemarP, \MiniMaxMcNemarP, and
+\QwenMcNemarP, respectively. After Holm correction across these five tests,
+none is below 0.05.
+
+The ordering is DeepSeek $>$ Qwen $>$ MiniMax $>$ Kimi $>$ GLM under both conditions. There
+is no rank reversal. The graph-cluster permutation omnibus test gives
+p=\InteractionP, with a \InteractionEffectRangePP-percentage-point range among
+the five paired effects. The data therefore show a large descriptive contrast
+between the 30-40-point declines and GLM's 10-point decline, but they do not
+establish that the underlying model-specific effects differ.
+
+One unsuccessful DeepSeek trial at five distractors is an empty technical
+response. Excluding it changes the observed success to 14/19 while retaining the
+same direction. We keep the end-to-end failure in the primary analysis to avoid
+selectively removing provider failures.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{../figures/figure1_main20_effect.pdf}
+\caption{Exact success under zero and five connected-compatible distractors.
+Generated from the formal main analysis.}
+\label{fig:main}
+\end{figure}
+
+\subsection{Dose pattern on shared graphs}
+\input{../tables/dose_response.tex}
+
+DeepSeek and Qwen remain flat between zero and two distractors and then decline
+at five. Kimi declines at two and again at five. GLM is already low at zero,
+declines further at two, and rises by one success at five. A common linear
+response or a single stable threshold is not supported. ``Threshold-like'' is a
+description of the sufficient-case pattern, not an estimated breakpoint.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.82\linewidth]{../figures/figure2_dose_response.pdf}
+\caption{Sufficient-case rates for 0, 2, and 5 connected-compatible distractors
+on 15 shared graphs for five model aliases.}
+\label{fig:dose}
+\end{figure}
+
+\subsection{Distractor affordance controls}
+\input{../tables/affordance_controls.tex}
+
+The connected-compatible condition is lowest for DeepSeek, Kimi, GLM, and
+MiniMax and ties the connected-incompatible condition for Qwen. Adding five disconnected
+tools does not reproduce the same level of failure. This is the strongest
+evidence in the present study against the simplest explanation that ``more tools
+necessarily means worse success.'' It is not a complete causal proof that type
+compatibility alone causes the effect. The controls change graph structure and
+callability together, and each condition has 15 graphs.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{../figures/figure3_affordance_controls.pdf}
+\caption{Tool count is held at five for the three distractor controls for all
+five model aliases.}
+\label{fig:affordance}
+\end{figure}
+
+\subsection{Affordance-Specific Penalty}
+\input{../tables/asp.tex}
+
+All five ASP point estimates are positive, ranging from \ASPRangeLowPP{} to
+\ASPRangeHighPP{} percentage points. MiniMax has the largest estimate
+(\MiniMaxASPP{} points, 95\% CI
+[\MiniMaxASPLowPP, \MiniMaxASPHighPP]) and is the only model that remains below
+0.05 after Holm correction (\MiniMaxASPHolmP). The other intervals include
+zero. The result establishes a consistent direction across five models but not
+a statistically homogeneous model property.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{../figures/figure5_asp_profile.pdf}
+\caption{ASP forest intervals and the descriptive relation between baseline
+success and ASP.}
+\label{fig:asp}
+\end{figure}
+
+\subsection{Schema-matched sealed-twin probe}
+\input{../tables/eap.tex}
+
+EAP is +20.0 points for DeepSeek, 0.0 for Kimi, +40.0 for GLM, +40.0 for
+MiniMax, and +20.0 for Qwen. GLM and MiniMax have bootstrap intervals excluding
+zero, but no model survives Holm correction. This is exploratory evidence that
+actual executability contributes to failure, not a completed causal mechanism.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{../figures/figure7_sealed_probe.pdf}
+\caption{Schema-matched executable and sealed tools on 10 shared graphs.}
+\label{fig:sealed}
+\end{figure}
+
+\subsection{Trace diagnostics and error distribution}
+Across the 200 main trials there are 118 correct outcomes, 23 wrong argument
+values, 29 premature dependency uses, 22 irrelevant function calls, seven
+premature final answers, and one technical/budget failure. At zero distractors,
+73 trials are correct, 14 have wrong arguments, and 13 use a dependency
+prematurely. At five distractors, 45 are correct, nine have wrong arguments, 16
+use a dependency prematurely, 22 call an irrelevant function, seven end
+prematurely, and one is technical.
+
+\input{../tables/trace_metrics.tex}
+
+Selection precision drops for every model when distractors are present.
+Required recall drops for DeepSeek, Kimi, and GLM and remains high for Qwen.
+Dependency order remains at or near one. Argument scores are not uniformly worse:
+Kimi is slightly lower under distractors, while Qwen and GLM are slightly higher
+in this aggregate, with GLM still starting from a low baseline.
+
+A supplementary stricter check found no main trial that was wrong despite an
+exact required-function set, dependency-order score 1, and argument score 1.
+This does not establish mediation. It does show that the observed end-to-end
+decline is concentrated in trajectories where at least one structural component
+fails.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{../figures/figure4_error_taxonomy.pdf}
+\caption{Primary error categories by condition for the five model aliases.}
+\label{fig:errors}
+\end{figure}
+
+\section{Interventions}
+
+\paragraph{State reminder.}
+We repeat already produced variable values in the prompt while keeping the same
+core graph and connected-compatible distraction. On four paired graphs, success
+is 3/4 to 3/4 for DeepSeek, 3/4 to 2/4 for Kimi, 1/4 to 1/4 for GLM, 2/4 to
+2/4 for MiniMax, and 3/4 to 3/4 for Qwen. There is no net increase. Kimi moves one graph from correct to
+incorrect. One GLM graph and one Kimi graph show opposite-direction transitions;
+these are too few observations to interpret as a stable benefit.
+
+\paragraph{Prerequisite hiding.}
+The second intervention hides tools whose input dependencies have not yet been
+produced. On eight graph-matched connected-compatible instances, success falls
+from 5/8 to 1/8 for DeepSeek, 3/8 to 2/8 for Kimi, 1/8 to 0/8 for GLM, 3/8 to
+1/8 for MiniMax, and 4/8 to 1/8 for Qwen. The paired deltas are $-50$, $-12.5$,
+$-12.5$, $-25.0$, and $-37.5$ percentage points.
+
+\input{../tables/interventions.tex}
+
+The gating result is not just ``no improvement'': every model declines. A
+descriptive transition analysis shows that previously correct DeepSeek and Qwen
+trials become irrelevant-function or premature-final failures after gating. The
+changed candidate set may alter the model's plan rather than merely remove an
+invalid action. We therefore do not recommend tool hiding as a general repair.
+
+\section{Discussion}
+
+\paragraph{Tool count is an insufficient task-description variable.}
+In this study, five disconnected tools do not reproduce the degradation observed
+for five connected-compatible tools on the same eight graphs. The relevant data
+property is therefore likely closer to \emph{executable, goal-irrelevant
+affordance} than to candidate count alone. This distinction matters when
+constructing a benchmark: two nine-tool tasks can pose different selection and
+state-tracking problems depending on whether the extra branches can run. The
+controls support a hypothesis, not a complete causal model. More graph seeds and
+finer intermediate controls are needed to separate connectedness, type
+compatibility, and executability.
+
+\paragraph{Failure is selection and state execution, not only parsing.}
+All five models lose function-selection precision under connected-compatible
+distractors. The error taxonomy includes wrong arguments, premature dependency
+use, irrelevant calls, and premature final answers. This is consistent with the
+view that multi-step tool use requires persistent goal state while multiple
+valid actions are available. The trace scores are descriptive evidence for that
+interpretation; they are not an identified causal pathway.
+
+\paragraph{Negative interventions are useful benchmark evidence.}
+The reminder and gating experiments test two plausible state-support strategies.
+Neither improves exact success. A paper that reported only aggregate degradation
+could suggest that exposing fewer tools or repeating state should help. These
+graph-matched negative results challenge that assumption and motivate
+interventions that preserve the candidate set while validating argument
+provenance or goal consistency.
+
+\section{Limitations}
+
+The main effect has 20 graph clusters, while affordance controls and gating have
+eight and the reminder has four. All main results are at dependency depth three.
+The main cells use one temperature-1 generation, so repeated-sampling variance is
+not yet estimated. The study uses five API aliases from one function-dependency
+family. Every analysis panel includes all five models. Provider aliases may
+change behind an endpoint; dates and configurations
+are recorded, but immutable provider snapshots are unavailable. Automated
+primary error labels and trace metrics have not been independently double-coded.
+The control conditions vary connectedness, type compatibility, and executable
+affordance together. The 15-graph dose pattern is descriptive and does not
+support a stable complexity threshold. ASP and EAP are derived contrasts, and
+the 10-graph sealed probe is underpowered for a definitive mechanism claim.
+Finally, code, generated graph data,
+license, hosting, and maintenance require finalization.
+
+\impact{This work evaluates API-served models using synthetically generated
+function graphs and does not involve human subjects or user data. A public
+release should avoid exposing provider credentials or raw account metadata. If
+generated tools are later connected to real APIs, benchmark examples should
+remain isolated from production systems and should not encourage unsafe
+autonomous action. The positive impact is improved evaluation practice:
+benchmark builders can report whether irrelevant tools are merely present or
+actually executable, and can audit the required task independently of the
+distractor layer. A negative impact is overinterpretation. A high score on this
+narrow suite cannot certify safe or reliable agents, and a low score cannot
+establish general model quality. We therefore report condition-specific
+evidence and negative interventions rather than a leaderboard.}
+
+\acks{Author names, affiliations, funding, competing interests, and
+acknowledgements remain to be completed. No funding disclosure is asserted in
+this working draft.}
+
+\bibliography{references}
+
+\appendix
+\section{Valid-Run Sensitivity and Additional Trace Checks}
+
+The main analysis retains the single technical failure. Excluding it does not
+change the direction: DeepSeek's distractor success becomes 14/19.
+
+\input{../tables/valid_trace_summary.tex}
+
+The generated supplement also contains graph-matched gating error transitions.
+Those transitions are exploratory because each model has eight pairs and the
+primary categories are automated.
+
+\section{Reproducibility and Artifact Plan}
+
+The formal run configurations, analysis summaries, graph fingerprints, and
+derived paper tables are retained in the project. A release should include
+deterministic graph generation code, exact prompts and tool schemas, analysis
+code, model configuration snapshots, sanitized traces, and scripts that
+regenerate every table and figure.
+
+Before submission, the following must be supplied: a stable artifact repository
+and archival DOI; a release version and license; a public generated-dataset URL
+or explicit reviewer-access mechanism; dataset documentation and intended-use
+boundaries; hosting and maintenance responsibility; a reproducibility
+checklist; and author and conflict-of-interest information.
+
+\end{document}
+

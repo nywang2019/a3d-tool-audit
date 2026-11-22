@@ -1,0 +1,6 @@
+﻿run,model_alias,distractor_mode,distractor_count,tool_gating,trials,correct,technical_failures,required_recall,selection_precision,dependency_order_score,argument_score,dependency_trace_fidelity,accuracy,accuracy_ci_low,accuracy_ci_high
+reminder_five_models,deepseek-flash,connected_compatible,5,False,8,6,0,1.0,0.6726190476190476,1.0,1.0,0.9181547619047619,0.75,0.40927543031016883,0.9285207872478909
+reminder_five_models,glm-5.3-flashx,connected_compatible,5,False,8,2,0,0.90625,0.7708333333333334,1.0,0.7833333333333333,0.8651041666666666,0.25,0.071479212752109,0.5907245696898311
+reminder_five_models,kimi-k3.1-pro,connected_compatible,5,False,8,5,0,1.0,0.7672619047619048,1.0,0.9071428571428571,0.9186011904761905,0.625,0.30574239460262737,0.8631557141764026
+reminder_five_models,minimax-m3.1-flash,connected_compatible,5,False,8,4,0,1.0,0.7428571428571429,1.0,0.8665178571428571,0.90234375,0.5,0.21521606221387757,0.7847839377861224
+reminder_five_models,qwen3.8-max,connected_compatible,5,False,8,6,0,0.90625,0.7020833333333334,1.0,1.0,0.9020833333333333,0.75,0.40927543031016883,0.9285207872478909

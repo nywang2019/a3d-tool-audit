@@ -1,0 +1,6 @@
+﻿run,model_alias,distractor_mode,distractor_count,tool_gating,paired_core_graph,pairs,baseline_accuracy,distractor_accuracy,delta,both_wrong,baseline_only,distractor_only,both_correct,delta_ci_low,delta_ci_high,mcnemar_exact_p
+repeatability8_five_models,deepseek-flash,connected_compatible,5,False,True,8,1.0,0.5,-0.5,0,4,0,4,-0.875,-0.125,0.125
+repeatability8_five_models,glm-5.3-flashx,connected_compatible,5,False,True,8,0.25,0.25,0.0,6,0,0,2,0.0,0.0,1.0
+repeatability8_five_models,kimi-k3.1-pro,connected_compatible,5,False,True,8,0.625,0.125,-0.5,3,4,0,1,-0.875,-0.125,0.125
+repeatability8_five_models,minimax-m3.1-flash,connected_compatible,5,False,True,8,0.875,0.5,-0.375,0,4,1,3,-0.875,0.125,0.375
+repeatability8_five_models,qwen3.8-max,connected_compatible,5,False,True,8,0.75,0.375,-0.375,1,4,1,2,-0.875,0.125,0.375

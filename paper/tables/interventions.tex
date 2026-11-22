@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering
+\caption{Two same-graph interventions for five model aliases: prerequisite hiding on eight graphs and a state reminder on four graphs.}
+\label{tab:interventions}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}Xr>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+\toprule
+Model & Prerequisite hiding: unhidden -> hidden & Hiding delta & Reminder: baseline -> treated & W->R / R->W \\
+\midrule
+DeepSeek & 5/8 -> 1/8 & -50.0 pp & 3/4 -> 3/4 & 0 / 0 \\
+Kimi & 3/8 -> 2/8 & -12.5 pp & 3/4 -> 2/4 & 0 / 1 \\
+GLM & 1/8 -> 0/8 & -12.5 pp & 1/4 -> 1/4 & 1 / 1 \\
+MiniMax & 3/8 -> 1/8 & -25.0 pp & 2/4 -> 2/4 & 0 / 0 \\
+Qwen & 4/8 -> 1/8 & -37.5 pp & 3/4 -> 3/4 & 0 / 0 \\
+\bottomrule
+\end{tabularx}
+\par\parbox{\linewidth}{\raggedright\footnotesize Source: \texttt{results/\allowbreak{}funcbench-gating-five-model-analysis-20261101/\allowbreak{}intervention/\allowbreak{}intervention\_effect\_summary.csv and results/\allowbreak{}funcbench-reminder-five-model-analysis-20261101/\allowbreak{}trial\_failures.csv}.}
+\par\parbox{\linewidth}{\raggedright\footnotesize W->R denotes wrong-to-right and R->W denotes right-to-wrong. Neither intervention yields a positive net repair.}
+\end{table}
