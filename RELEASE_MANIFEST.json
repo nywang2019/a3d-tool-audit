@@ -7,7 +7,7 @@
   "orcid": "0000-0003-2587-1438",
   "code_license": "MIT",
   "data_license": "CC-BY-4.0",
-  "file_count": 556,
+  "file_count": 557,
   "files": [
     {
       "path": ".gitignore",
@@ -238,6 +238,11 @@
       "path": "configs/three_vendor_pilot.yaml",
       "bytes": 1039,
       "sha256": "504BFEEFBB936247B9DE4EA2716135E43A40F97CC4CC5874EF369CFDD466CB4A"
+    },
+    {
+      "path": "CONTRIBUTORS.md",
+      "bytes": 808,
+      "sha256": "197173C61F526E64C9016E82E87CF62EEB22B408C9C060BF7342256554F9ED91"
     },
     {
       "path": "data/analyses/control15/asp/asp_graph_scores.csv",
