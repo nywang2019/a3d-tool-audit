@@ -40,14 +40,14 @@ SEALED_PROBE = ROOT / "results" / "funcbench-sealed-probe-analysis-20261101"
 EAP = SEALED_PROBE / "eap"
 
 MODEL_LABELS = {
-    "deepseek-flash": "DeepSeek Flash",
+    "deepseek-flash": "DeepSeek-V4.1-Flash",
     "kimi-k3.1-pro": "Kimi K3.1 Pro",
     "glm-5.3-flashx": "GLM-5.3-Flashx",
     "minimax-m3.1-flash": "MiniMax-M3.1-Flash",
     "qwen3.8-max": "Qwen3.8-Max",
 }
 TABLE_MODEL_LABELS = {
-    "deepseek-flash": "DeepSeek",
+    "deepseek-flash": "DeepSeek-V4.1-Flash",
     "kimi-k3.1-pro": "Kimi",
     "glm-5.3-flashx": "GLM",
     "minimax-m3.1-flash": "MiniMax",
@@ -496,7 +496,7 @@ def build_control_table() -> pd.DataFrame:
         footnote=(
             "Each model has 15 trials per condition. The disconnected and "
             "connected-incompatible controls do not reproduce the degradation "
-            "observed with executable goal-irrelevant tools. DeepSeek has one "
+            "observed with executable goal-irrelevant tools. DeepSeek-V4.1-Flash has one "
             "technical/budget failure in each connected condition."
         ),
     )
@@ -828,7 +828,7 @@ def build_repeatability_tables() -> None:
     conditions = read_csv(conditions_path)
     condition_rows = [
         [
-            row["Model"],
+            "DeepSeek-V4.1-Flash" if row["Model"] == "DeepSeek" else row["Model"],
             f"{int(row['Original 0'])}/8",
             f"{int(row['Repeat 0'])}/8",
             f"{int(row['Original 5'])}/8",
@@ -870,7 +870,7 @@ def build_repeatability_tables() -> None:
     agreement = read_csv(agreement_path)
     agreement_rows = [
         [
-            row["Model"],
+            "DeepSeek-V4.1-Flash" if row["Model"] == "DeepSeek" else row["Model"],
             row["Original correct"],
             row["Repeat correct"],
             row["Same correctness"],
@@ -2132,7 +2132,7 @@ def build_figures(
     axes[0].set_xticks(
         x,
         [
-            "DeepSeek\nFlash",
+            "DeepSeek-V4.1-\nFlash",
             "Kimi\nK3.1",
             "GLM\n5.3",
             "MiniMax\nM3.1",

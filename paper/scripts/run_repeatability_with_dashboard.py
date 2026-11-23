@@ -17,7 +17,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 MODEL_LABELS = {
-    "deepseek-flash": "DeepSeek",
+    "deepseek-flash": "DeepSeek-V4.1-Flash",
     "kimi-k3.1-pro": "Kimi",
     "glm-5.3-flashx": "GLM",
     "qwen3.8-max": "Qwen",

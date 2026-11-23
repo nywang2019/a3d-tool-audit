@@ -14,7 +14,7 @@
 
 | Model | Original | Repeat | Same correctness | Kappa | Same category | Repeat 5-0 effect |
 |---|---:|---:|---:|---:|---:|---:|
-| DeepSeek | 13/16 | 12/16 | 15/16 | 0.818 | 14/16 | -87.5, -12.5 pp |
+| DeepSeek-V4.1-Flash | 13/16 | 12/16 | 15/16 | 0.818 | 14/16 | -87.5, -12.5 pp |
 | Kimi | 8/16 | 6/16 | 14/16 | 0.750 | 13/16 | -87.5, -12.5 pp |
 | GLM | 4/16 | 4/16 | 14/16 | 0.667 | 9/16 | +0.0, +0.0 pp |
 | MiniMax | 10/16 | 11/16 | 11/16 | 0.310 | 10/16 | -87.5, +12.5 pp |
@@ -24,7 +24,7 @@
 
 | Model | Original 0 | Repeat 0 | Original 5 | Repeat 5 | Original delta | Repeat delta |
 |---|---:|---:|---:|---:|---:|---:|
-| DeepSeek | 8/8 | 8/8 | 5/8 | 4/8 | -37.5 pp | -50.0 pp |
+| DeepSeek-V4.1-Flash | 8/8 | 8/8 | 5/8 | 4/8 | -37.5 pp | -50.0 pp |
 | Kimi | 5/8 | 5/8 | 3/8 | 1/8 | -25.0 pp | -50.0 pp |
 | GLM | 3/8 | 2/8 | 1/8 | 2/8 | -25.0 pp | +0.0 pp |
 | MiniMax | 7/8 | 7/8 | 3/8 | 4/8 | -50.0 pp | -37.5 pp |

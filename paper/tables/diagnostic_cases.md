@@ -1,6 +1,6 @@
 | Case | Model | Rule-derived diagnosis | Trace fidelity | Trial ID |
 |---|---:|---:|---:|---:|
-| D1 | DeepSeek | Executable goal-irrelevant tool | 0.861 | d3-x5-g5-r0 |
+| D1 | DeepSeek-V4.1-Flash | Executable goal-irrelevant tool | 0.861 | d3-x5-g5-r0 |
 | K1 | Kimi | Wrong argument value | 0.857 | d3-x5-g0-r0 |
 | G1 | GLM | Premature dependency | 0.750 | d3-x5-g2-r0 |
 | M1 | MiniMax | Irrelevant function calls | 0.719 | d3-x5-g1-r0 |

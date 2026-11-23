@@ -19,7 +19,7 @@ ORIGINAL_FOUR = {
 }
 FIVE = ORIGINAL_FOUR | {"minimax-m3.1-flash"}
 ORIGINAL_LABELS = {
-    "DeepSeek",
+    "DeepSeek-V4.1-Flash",
     "Kimi",
     "GLM",
     "Qwen",
@@ -46,15 +46,15 @@ def main() -> None:
         "main_table_five_models": models(
             PAPER / "tables/main20_effect.csv", "Model"
         )
-        == {"DeepSeek", "Kimi", "GLM", "MiniMax", "Qwen"},
+        == {"DeepSeek-V4.1-Flash", "Kimi", "GLM", "MiniMax", "Qwen"},
         "trace_table_five_models": models(
             PAPER / "tables/trace_metrics.csv", "Model"
         )
-        == {"DeepSeek", "Kimi", "GLM", "MiniMax", "Qwen"},
+        == {"DeepSeek-V4.1-Flash", "Kimi", "GLM", "MiniMax", "Qwen"},
         "valid_trace_table_five_models": models(
             PAPER / "tables/valid_trace_summary.csv", "Model"
         )
-        == {"DeepSeek", "Kimi", "GLM", "MiniMax", "Qwen"},
+        == {"DeepSeek-V4.1-Flash", "Kimi", "GLM", "MiniMax", "Qwen"},
         "diagnostic_cases_five_models": models(
             PAPER / "tables/diagnostic_cases.csv", "Model"
         )

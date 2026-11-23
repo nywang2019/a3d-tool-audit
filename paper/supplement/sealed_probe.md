@@ -35,7 +35,7 @@ A positive value means that sealing improved the exact success rate.
 
 | Model | Executable | Sealed | EAP |
 |---|---:|---:|---:|
-| DeepSeek | 7/10 | 9/10 | +20.0 pp |
+| DeepSeek-V4.1-Flash | 7/10 | 9/10 | +20.0 pp |
 | Kimi | 4/10 | 4/10 | 0.0 pp |
 | GLM | 1/10 | 5/10 | +40.0 pp |
 | MiniMax | 3/10 | 7/10 | +40.0 pp |

@@ -38,17 +38,17 @@ Each cell is correct/trials on the same 15 graph indices.
 
 | Model | 0 | Disconnected 5 | Connected-incompatible 5 | Executable goal-irrelevant 5 |
 |---|---:|---:|---:|---:|
-| DeepSeek Flash | 15/15 | 14/15 | 12/15 | 10/15 |
+| DeepSeek-V4.1-Flash | 15/15 | 14/15 | 12/15 | 10/15 |
 | Kimi K3.1 Pro | 11/15 | 10/15 | 7/15 | 5/15 |
 | GLM-5.3-Flashx | 4/15 | 8/15 | 4/15 | 3/15 |
 | MiniMax-M3.1-Flash | 12/15 | 13/15 | 11/15 | 5/15 |
 | Qwen3.8-Max | 12/15 | 14/15 | 8/15 | 8/15 |
 
-The executable goal-irrelevant condition is lowest for DeepSeek, Kimi, and GLM
+The executable goal-irrelevant condition is lowest for DeepSeek-V4.1-Flash, Kimi, and GLM
 and ties the connected-incompatible condition for Qwen. Five disconnected tools
 have a higher exact success rate than executable goal-irrelevant tools for every
 model.
-DeepSeek has one technical failure in each connected condition; every other
+DeepSeek-V4.1-Flash has one technical failure in each connected condition; every other
 model-condition cell has zero technical failures.
 
 ## Interpretation boundary

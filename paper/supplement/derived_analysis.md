@@ -10,7 +10,7 @@ This file is generated from the canonical formal result files. No model API call
 
 | Model | 0 | 5 | Delta | 95% CI | McNemar p | Holm p |
 |---|---:|---:|---:|---:|---:|---:|
-| DeepSeek Flash | 20/20 | 14/20 | -30.0 pp | [-50.0, -10.0] | 0.0312 | 0.1250 |
+| DeepSeek-V4.1-Flash | 20/20 | 14/20 | -30.0 pp | [-50.0, -10.0] | 0.0312 | 0.1250 |
 | Kimi K3.1 Pro | 13/20 | 7/20 | -30.0 pp | [-55.0, -5.0] | 0.0703 | 0.2109 |
 | GLM-5.3-Flashx | 7/20 | 5/20 | -10.0 pp | [-35.0, +15.0] | 0.6875 | 0.6875 |
 | MiniMax-M3.1-Flash | 16/20 | 8/20 | -40.0 pp | [-65.0, -15.0] | 0.0215 | 0.1074 |
@@ -20,8 +20,8 @@ This file is generated from the canonical formal result files. No model API call
 
 | model | extra_tools | attempts | technical_failures | valid_success | complete_trace | wrong_complete_trace |
 |---|---:|---:|---:|---:|---:|---:|
-| DeepSeek | 0 | 20 | 0 | 20/20 | 20/20 | 0 |
-| DeepSeek | 5 | 20 | 1 | 14/19 | 10/20 | 0 |
+| DeepSeek-V4.1-Flash | 0 | 20 | 0 | 20/20 | 20/20 | 0 |
+| DeepSeek-V4.1-Flash | 5 | 20 | 1 | 14/19 | 10/20 | 0 |
 | Kimi | 0 | 20 | 0 | 13/20 | 13/20 | 0 |
 | Kimi | 5 | 20 | 0 | 7/20 | 4/20 | 0 |
 | GLM | 0 | 20 | 0 | 7/20 | 7/20 | 0 |
@@ -44,7 +44,7 @@ This file is generated from the canonical formal result files. No model API call
 
 | Model | 0 | Disconnected 5 | Connected-incompatible 5 | Executable goal-irrelevant 5 |
 |---|---:|---:|---:|---:|
-| DeepSeek | 15/15 | 14/15 | 12/15 | 10/15 |
+| DeepSeek-V4.1-Flash | 15/15 | 14/15 | 12/15 | 10/15 |
 | Kimi | 11/15 | 10/15 | 7/15 | 5/15 |
 | GLM | 4/15 | 8/15 | 4/15 | 3/15 |
 | MiniMax | 12/15 | 13/15 | 11/15 | 5/15 |
@@ -56,7 +56,7 @@ All four conditions use the same 15 required graphs. Executable goal-irrelevant 
 
 | Model | ASP | 95% CI | Sign-flip p | Holm p | +/0/- |
 |---|---:|---:|---:|---:|---:|
-| DeepSeek | +20.0 pp | [-3.3, +43.3] | 0.2188 | 0.5625 | 5/8/2 |
+| DeepSeek-V4.1-Flash | +20.0 pp | [-3.3, +43.3] | 0.2188 | 0.5625 | 5/8/2 |
 | Kimi | +23.3 pp | [+3.3, +43.3] | 0.0938 | 0.3750 | 6/8/1 |
 | GLM | +20.0 pp | [-6.7, +43.3] | 0.2461 | 0.5625 | 7/6/2 |
 | MiniMax | +46.7 pp | [+23.3, +70.0] | 0.0068 | 0.0342 | 10/4/1 |
@@ -68,7 +68,7 @@ ASP is the mean of the disconnected-minus-goal-irrelevant and connected-incompat
 
 | Model | Executable | Sealed | EAP | 95% CI | Holm p | +/0/- |
 |---|---:|---:|---:|---:|---:|---:|
-| DeepSeek | 7/10 | 9/10 | +20.0 pp | [+0.0, +50.0] | 1.0000 | 2/8/0 |
+| DeepSeek-V4.1-Flash | 7/10 | 9/10 | +20.0 pp | [+0.0, +50.0] | 1.0000 | 2/8/0 |
 | Kimi | 4/10 | 4/10 | +0.0 pp | [-30.0, +30.0] | 1.0000 | 1/8/1 |
 | GLM | 1/10 | 5/10 | +40.0 pp | [+10.0, +70.0] | 0.6250 | 4/6/0 |
 | MiniMax | 3/10 | 7/10 | +40.0 pp | [+10.0, +70.0] | 0.6250 | 4/6/0 |

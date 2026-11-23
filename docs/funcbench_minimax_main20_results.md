@@ -100,7 +100,7 @@ The full five-model table is:
 
 | Model | 0 | 5 compatible | Delta |
 |---|---:|---:|---:|
-| DeepSeek Flash | 20/20 | 14/20 | -30.0 pp |
+| DeepSeek-V4.1-Flash | 20/20 | 14/20 | -30.0 pp |
 | Kimi K3.1 Pro | 13/20 | 7/20 | -30.0 pp |
 | GLM-5.3-Flashx | 7/20 | 5/20 | -10.0 pp |
 | MiniMax-M3.1-Flash | 16/20 | 8/20 | -40.0 pp |

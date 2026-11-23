@@ -4,9 +4,9 @@ Only trials whose primary category changed after graph-matched prerequisite hidi
 
 | Model | Unhidden category | Hidden category | Count |
 |---|---:|---:|---:|
-| DeepSeek Flash | correct | irrelevant_function | 9 |
-| DeepSeek Flash | correct | premature_final | 2 |
-| DeepSeek Flash | premature_dependency | irrelevant_function | 1 |
+| DeepSeek-V4.1-Flash | correct | irrelevant_function | 9 |
+| DeepSeek-V4.1-Flash | correct | premature_final | 2 |
+| DeepSeek-V4.1-Flash | premature_dependency | irrelevant_function | 1 |
 | Kimi K3.1 Pro | correct | irrelevant_function | 3 |
 | Kimi K3.1 Pro | premature_dependency | irrelevant_function | 2 |
 | Kimi K3.1 Pro | premature_dependency | wrong_argument_value | 2 |

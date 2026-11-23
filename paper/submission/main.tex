@@ -119,7 +119,8 @@ on tool count conflate candidate-set size, connectivity, type compatibility, and
 runtime execution. We present A3D, an audit system that holds the required
 dependency task fixed, constructs equal-count tool-availability conditions, and
 derives a first decisive error from saved calls. Across 20 shared depth-three
-graphs and five API-served model aliases, five executable goal-irrelevant tools
+graphs and five leading Chinese commercial model families, five executable
+goal-irrelevant tools
 were associated with a secondary, descriptive panel-level mean paired reduction
 in exact success of
 \StudyMainDeltaPP{} percentage points (graph-cluster 95\% CI
@@ -232,6 +233,9 @@ only the MiniMax model-level ASP survived Holm correction. A 10-graph sealed
 probe directionally implicated execution but no corrected model-level EAP
 survived. These summaries support a panel-level observation, not a population
 ranking or a unique causal decomposition.
+
+The empirical target is a cross-provider comparison across five leading Chinese
+commercial model families, represented by five fixed API-served aliases.
 
 The paper makes two method contributions and reports one empirical boundary,
 summarized in Table~\ref{tab:contribution-boundary}.
@@ -628,7 +632,7 @@ Sealed probe & 10 & executable / sealed & 5 & 100 \\
 
 \subsection{Models and API configuration}
 
-We evaluated DeepSeek Flash, Kimi K3.1 Pro, GLM-5.3-Flashx,
+We evaluated DeepSeek-V4.1-Flash, Kimi K3.1 Pro, GLM-5.3-Flashx,
 MiniMax-M3.1-Flash, and Qwen3.8-Max on 2026-10-29, 2026-10-30, and
 2026-11-01. The models were invoked through
 direct provider endpoints with \texttt{trust\_env=false}. The shared
@@ -637,6 +641,11 @@ low reasoning effort where supported, a 300-second timeout, and at most two
 retries. MiniMax-M3.1-Flash does not allow thinking to be disabled; we used its
 lowest supported effort and preserved returned reasoning content across tool
 turns.
+
+The five families were purposively selected to cover leading, widely used
+Chinese commercial models from DeepSeek, Moonshot AI, Zhipu AI, MiniMax, and
+Alibaba Cloud as of October 2026; the listed aliases identify the API
+configurations evaluated.
 
 Service aliases are not immutable model snapshots. We therefore report the
 endpoint alias, configuration snapshot, and execution date rather than treating
@@ -715,7 +724,7 @@ procedures use a fixed deterministic seed in the asset builder.
 \toprule
 Model & 0 extra tools & 5 goal-irrelevant & Delta [95\% CI] & Exact McNemar p & Holm p \\
 \midrule
-DeepSeek & 20/20 (100.0\%) & 14/20 (70.0\%) & -30.0 pp [-50.0, -10.0] & 0.0312 & 0.1250 \\
+DeepSeek-V4.1-Flash & 20/20 (100.0\%) & 14/20 (70.0\%) & -30.0 pp [-50.0, -10.0] & 0.0312 & 0.1250 \\
 Kimi & 13/20 (65.0\%) & 7/20 (35.0\%) & -30.0 pp [-55.0, -5.0] & 0.0703 & 0.2109 \\
 GLM & 7/20 (35.0\%) & 5/20 (25.0\%) & -10.0 pp [-35.0, +15.0] & 0.6875 & 0.6875 \\
 MiniMax & 16/20 (80.0\%) & 8/20 (40.0\%) & -40.0 pp [-65.0, -15.0] & 0.0215 & 0.1074 \\
@@ -762,11 +771,11 @@ tools.}
 \label{fig:core-evidence}
 \end{figure}
 
-The model ordering was DeepSeek $>$ Qwen $>$ MiniMax $>$ Kimi $>$ GLM in both
+The model ordering was DeepSeek-V4.1-Flash $>$ Qwen $>$ MiniMax $>$ Kimi $>$ GLM in both
 main conditions, with no reversal. The graph-cluster permutation test for an
 interaction gave p=\InteractionP{} and a \InteractionEffectRangePP-point range
 among paired effects, so the data do not show statistically different
-model-specific effects. One DeepSeek trial produced an empty response under
+model-specific effects. One DeepSeek-V4.1-Flash trial produced an empty response under
 five extra tools; excluding it changes success from 14/20 to 14/19 and leaves
 the direction unchanged.
 
@@ -775,7 +784,7 @@ the direction unchanged.
 The equal-count comparison addresses the main alternative explanation. On 15
 shared graphs, disconnected tools did not reproduce the executable goal-irrelevant
 condition's loss, and connected-incompatible tools did not produce a stable
-similar loss. The executable goal-irrelevant condition was lowest for DeepSeek, Kimi,
+similar loss. The executable goal-irrelevant condition was lowest for DeepSeek-V4.1-Flash, Kimi,
 GLM, and MiniMax, and tied with the connected-incompatible condition for Qwen.
 The disconnected condition had a higher exact success rate than the executable goal-irrelevant condition
 for every model.
@@ -829,7 +838,7 @@ went wrong.
 Figure~\ref{fig:errors} shows that these totals come from different
 model-specific mixtures. This is why the paper treats trace evidence as a
 diagnostic result rather than as a replacement for the exact success rate. A saved
-DeepSeek trajectory provides a concrete example: the model spent its action
+DeepSeek-V4.1-Flash trajectory provides a concrete example: the model spent its action
 budget on an executable goal-irrelevant tool. Other trajectories show wrong argument
 values, premature dependency use, or premature final answers. The complete
 reports are in the
@@ -852,7 +861,7 @@ The schema-matched sealed probe changes only runtime execution. The model sees
 the same tool names, descriptions, JSON schemas, order, prompt, graph, and
 target in both conditions. Sealing the executable goal-irrelevant tools increased
 the exact success rate for four models and left Kimi unchanged: EAP was 20.0
-points for DeepSeek, 0.0 for Kimi, 40.0 for GLM, 40.0 for MiniMax, and 20.0 for
+points for DeepSeek-V4.1-Flash, 0.0 for Kimi, 40.0 for GLM, 40.0 for MiniMax, and 20.0 for
 Qwen.
 
 Figure~\ref{fig:sealed} shows the condition rates and intervals. GLM and
@@ -875,7 +884,7 @@ changes. The 10-graph probe is exploratory.}
 
 The conclusions are not equally stable across models. A fresh sample on eight
 graphs reproduced 67/80 correctness labels (83.75\%; Cohen's kappa 0.673). The
-executable-goal-irrelevant-condition decline repeated for DeepSeek, Kimi, MiniMax, and Qwen;
+executable-goal-irrelevant-condition decline repeated for DeepSeek-V4.1-Flash, Kimi, MiniMax, and Qwen;
 GLM remained near its low baseline and did not repeat it.
 
 Two attempts to support the model produced no net improvement. A state reminder
@@ -994,6 +1003,9 @@ generalized to those different intervention mechanisms.
 
 The main analysis has 20 graph clusters, one temperature-1 sample per cell, one
 task family, and five model aliases that are not immutable provider snapshots.
+The five families are a purposive panel, not a probability sample of all Chinese
+models; the results support within-panel comparison, not a complete national
+ranking.
 The fixed-panel summary is post-hoc and secondary; it addresses the direction
 across these aliases but does not estimate a distribution of models or remove
 sampling variation within a cell. No a priori precision target was set. The

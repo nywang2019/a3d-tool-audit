@@ -315,19 +315,19 @@
     {
       "count": 9,
       "hidden_category": "irrelevant_function",
-      "model": "DeepSeek Flash",
+      "model": "DeepSeek-V4.1-Flash",
       "reference_category": "correct"
     },
     {
       "count": 2,
       "hidden_category": "premature_final",
-      "model": "DeepSeek Flash",
+      "model": "DeepSeek-V4.1-Flash",
       "reference_category": "correct"
     },
     {
       "count": 1,
       "hidden_category": "irrelevant_function",
-      "model": "DeepSeek Flash",
+      "model": "DeepSeek-V4.1-Flash",
       "reference_category": "premature_dependency"
     },
     {
@@ -653,7 +653,7 @@
       "attempts": 20,
       "complete_trace": "20/20",
       "extra_tools": 0,
-      "model": "DeepSeek",
+      "model": "DeepSeek-V4.1-Flash",
       "technical_failures": 0,
       "valid_success": "20/20",
       "wrong_complete_trace": 0
@@ -662,7 +662,7 @@
       "attempts": 20,
       "complete_trace": "10/20",
       "extra_tools": 5,
-      "model": "DeepSeek",
+      "model": "DeepSeek-V4.1-Flash",
       "technical_failures": 1,
       "valid_success": "14/19",
       "wrong_complete_trace": 0

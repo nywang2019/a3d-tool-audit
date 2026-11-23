@@ -157,7 +157,7 @@ def main() -> None:
     )
     assert len(repeatability) == 5
     assert set(repeatability["Model"]) == {
-        "DeepSeek",
+        "DeepSeek-V4.1-Flash",
         "Kimi",
         "GLM",
         "MiniMax",
@@ -186,7 +186,7 @@ def main() -> None:
 
     bib = (PAPER / "manuscript/references.bib").read_text(encoding="utf-8")
     bib_keys = set(re.findall(r"@\w+\{([^,]+),", bib))
-    for manuscript_name in ("main.tex", "main_applied_intelligence.tex"):
+    for manuscript_name in ("main_applied_intelligence.tex",):
         tex = (PAPER / "manuscript" / manuscript_name).read_text(encoding="utf-8")
         inputs = re.findall(r"\\input\{([^}]+)\}", tex)
         assert inputs

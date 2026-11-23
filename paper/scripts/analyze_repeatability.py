@@ -33,7 +33,7 @@ REPEAT = (
 OUTPUT = ROOT / "paper/supplement"
 TABLE = ROOT / "paper/tables"
 MODEL_LABELS = {
-    "deepseek-flash": "DeepSeek",
+    "deepseek-flash": "DeepSeek-V4.1-Flash",
     "kimi-k3.1-pro": "Kimi",
     "glm-5.3-flashx": "GLM",
     "minimax-m3.1-flash": "MiniMax",

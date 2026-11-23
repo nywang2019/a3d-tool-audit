@@ -1,6 +1,6 @@
 Model,Extra tools,Attempts,Technical/budget failures,Success among valid runs,Complete structural trace,Wrong despite complete trace
-DeepSeek,0,20,0,20/20,20/20,0
-DeepSeek,5,20,1,14/19,10/20,0
+DeepSeek-V4.1-Flash,0,20,0,20/20,20/20,0
+DeepSeek-V4.1-Flash,5,20,1,14/19,10/20,0
 Kimi,0,20,0,13/20,13/20,0
 Kimi,5,20,0,7/20,4/20,0
 GLM,0,20,0,7/20,7/20,0
