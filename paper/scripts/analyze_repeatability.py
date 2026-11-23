@@ -34,10 +34,10 @@ OUTPUT = ROOT / "paper/supplement"
 TABLE = ROOT / "paper/tables"
 MODEL_LABELS = {
     "deepseek-flash": "DeepSeek-V4.1-Flash",
-    "kimi-k3.1-pro": "Kimi",
-    "glm-5.3-flashx": "GLM",
-    "minimax-m3.1-flash": "MiniMax",
-    "qwen3.8-max": "Qwen",
+    "kimi-k3.1-pro": "Kimi K3.1 Pro",
+    "glm-5.3-flashx": "GLM-5.3-Flashx",
+    "minimax-m3.1-flash": "MiniMax-M3.1-Flash",
+    "qwen3.8-max": "Qwen3.8-Max",
 }
 BOOTSTRAP_SEEDS = {
     "deepseek-flash": 20261101,

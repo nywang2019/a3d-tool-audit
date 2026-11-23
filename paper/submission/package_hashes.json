@@ -1,17 +1,17 @@
 ﻿[
     {
         "file":  "applied_intelligence_source.zip",
-        "bytes":  554914,
-        "sha256":  "3319CEB171B5FEA934A971518D0A8C1E3C57765DDF1A608421E0F3955B3333FF"
+        "bytes":  555246,
+        "sha256":  "C003E25FB94B97359AEB6E2AD73BDA7D982BE712361B983FFCA80ED541B0C97B"
     },
     {
         "file":  "applied_intelligence_supplement.zip",
-        "bytes":  56637,
-        "sha256":  "16800232C6BD8F1A25221F4F3019DA3796EE98A12855819C781FABB151AE149E"
+        "bytes":  57467,
+        "sha256":  "0F34B816690B4B513E20EC2DBB39A6B779DBF7110089C7C426EFCA62B00C26B0"
     },
     {
         "file":  "main.pdf",
-        "bytes":  784388,
-        "sha256":  "043B5B4929CA71206670DA1C2ABE1C1E4034EB9934F33794B2A72F5429F27087"
+        "bytes":  784779,
+        "sha256":  "E925691F758F42D42D88977DBAC74633CAB138DA9FEBDEC15C62719D34C25745"
     }
 ]

@@ -48,10 +48,10 @@ MODEL_LABELS = {
 }
 TABLE_MODEL_LABELS = {
     "deepseek-flash": "DeepSeek-V4.1-Flash",
-    "kimi-k3.1-pro": "Kimi",
-    "glm-5.3-flashx": "GLM",
-    "minimax-m3.1-flash": "MiniMax",
-    "qwen3.8-max": "Qwen",
+    "kimi-k3.1-pro": "Kimi K3.1 Pro",
+    "glm-5.3-flashx": "GLM-5.3-Flashx",
+    "minimax-m3.1-flash": "MiniMax-M3.1-Flash",
+    "qwen3.8-max": "Qwen3.8-Max",
 }
 MODEL_ORDER = list(MODEL_LABELS)
 COLORS = {
@@ -2133,12 +2133,13 @@ def build_figures(
         x,
         [
             "DeepSeek-V4.1-\nFlash",
-            "Kimi\nK3.1",
-            "GLM\n5.3",
-            "MiniMax\nM3.1",
-            "Qwen\n3.8",
+            "Kimi K3.1\nPro",
+            "GLM-5.3-\nFlashx",
+            "MiniMax-\nM3.1-Flash",
+            "Qwen3.8-\nMax",
         ],
-        rotation=0,
+        rotation=25,
+        ha="right",
         fontsize=8,
     )
     axes[0].set_ylim(0, 1.08)

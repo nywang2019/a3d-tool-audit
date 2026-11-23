@@ -1,11 +1,11 @@
 Model,Extra tools,Attempts,Technical/budget failures,Success among valid runs,Complete structural trace,Wrong despite complete trace
 DeepSeek-V4.1-Flash,0,20,0,20/20,20/20,0
 DeepSeek-V4.1-Flash,5,20,1,14/19,10/20,0
-Kimi,0,20,0,13/20,13/20,0
-Kimi,5,20,0,7/20,4/20,0
-GLM,0,20,0,7/20,7/20,0
-GLM,5,20,0,5/20,2/20,0
-MiniMax,0,20,0,16/20,16/20,0
-MiniMax,5,20,0,8/20,3/20,0
-Qwen,0,20,0,17/20,17/20,0
-Qwen,5,20,0,11/20,7/20,0
+Kimi K3.1 Pro,0,20,0,13/20,13/20,0
+Kimi K3.1 Pro,5,20,0,7/20,4/20,0
+GLM-5.3-Flashx,0,20,0,7/20,7/20,0
+GLM-5.3-Flashx,5,20,0,5/20,2/20,0
+MiniMax-M3.1-Flash,0,20,0,16/20,16/20,0
+MiniMax-M3.1-Flash,5,20,0,8/20,3/20,0
+Qwen3.8-Max,0,20,0,17/20,17/20,0
+Qwen3.8-Max,5,20,0,11/20,7/20,0

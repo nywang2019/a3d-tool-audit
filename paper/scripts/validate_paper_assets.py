@@ -158,10 +158,10 @@ def main() -> None:
     assert len(repeatability) == 5
     assert set(repeatability["Model"]) == {
         "DeepSeek-V4.1-Flash",
-        "Kimi",
-        "GLM",
-        "MiniMax",
-        "Qwen",
+        "Kimi K3.1 Pro",
+        "GLM-5.3-Flashx",
+        "MiniMax-M3.1-Flash",
+        "Qwen3.8-Max",
     }
 
     generated_numbers = (

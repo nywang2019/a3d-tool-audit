@@ -671,7 +671,7 @@
       "attempts": 20,
       "complete_trace": "13/20",
       "extra_tools": 0,
-      "model": "Kimi",
+      "model": "Kimi K3.1 Pro",
       "technical_failures": 0,
       "valid_success": "13/20",
       "wrong_complete_trace": 0
@@ -680,7 +680,7 @@
       "attempts": 20,
       "complete_trace": "4/20",
       "extra_tools": 5,
-      "model": "Kimi",
+      "model": "Kimi K3.1 Pro",
       "technical_failures": 0,
       "valid_success": "7/20",
       "wrong_complete_trace": 0
@@ -689,7 +689,7 @@
       "attempts": 20,
       "complete_trace": "7/20",
       "extra_tools": 0,
-      "model": "GLM",
+      "model": "GLM-5.3-Flashx",
       "technical_failures": 0,
       "valid_success": "7/20",
       "wrong_complete_trace": 0
@@ -698,7 +698,7 @@
       "attempts": 20,
       "complete_trace": "2/20",
       "extra_tools": 5,
-      "model": "GLM",
+      "model": "GLM-5.3-Flashx",
       "technical_failures": 0,
       "valid_success": "5/20",
       "wrong_complete_trace": 0
@@ -707,7 +707,7 @@
       "attempts": 20,
       "complete_trace": "16/20",
       "extra_tools": 0,
-      "model": "MiniMax",
+      "model": "MiniMax-M3.1-Flash",
       "technical_failures": 0,
       "valid_success": "16/20",
       "wrong_complete_trace": 0
@@ -716,7 +716,7 @@
       "attempts": 20,
       "complete_trace": "3/20",
       "extra_tools": 5,
-      "model": "MiniMax",
+      "model": "MiniMax-M3.1-Flash",
       "technical_failures": 0,
       "valid_success": "8/20",
       "wrong_complete_trace": 0
@@ -725,7 +725,7 @@
       "attempts": 20,
       "complete_trace": "17/20",
       "extra_tools": 0,
-      "model": "Qwen",
+      "model": "Qwen3.8-Max",
       "technical_failures": 0,
       "valid_success": "17/20",
       "wrong_complete_trace": 0
@@ -734,7 +734,7 @@
       "attempts": 20,
       "complete_trace": "7/20",
       "extra_tools": 5,
-      "model": "Qwen",
+      "model": "Qwen3.8-Max",
       "technical_failures": 0,
       "valid_success": "11/20",
       "wrong_complete_trace": 0
