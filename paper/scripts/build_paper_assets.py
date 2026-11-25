@@ -2036,7 +2036,7 @@ def build_figures(
                 color="white" if value >= 0.55 else "#172033",
                 fontweight="bold" if col == 3 else "normal",
             )
-    ax_control.set_title("B  Same tool count, changed tool usability", loc="left", pad=10)
+    ax_control.set_title("B  Same five tools, changed tool usability", loc="left", pad=10)
     colorbar = fig.colorbar(image, ax=ax_control, fraction=0.028, pad=0.015)
     colorbar.ax.yaxis.set_major_formatter(
         matplotlib.ticker.PercentFormatter(1.0)

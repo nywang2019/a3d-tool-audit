@@ -1,7 +1,7 @@
 {
   "repository": "https://github.com/nywang2019/a3d-tool-audit",
   "version": "1.0.0",
-  "manuscript_version": "v0.13.27",
+  "manuscript_version": "v0.13.28",
   "date": "2026-11-25",
   "author": "Nianyi Wang",
   "orcid": "0000-0003-2587-1438",
@@ -486,23 +486,23 @@
     },
     {
       "path": "paper/figures/figure3_core_evidence.pdf",
-      "bytes": 51140,
-      "sha256": "3C42BA53C9C63F0211B3DF97EA390D0D868423244E008D03827AB7656A6B74CF"
+      "bytes": 51895,
+      "sha256": "DC87349099124305C41D436419A97817F30277D978561D01F19DF39ACB44EE4E"
     },
     {
       "path": "paper/figures/figure4_asp.pdf",
       "bytes": 33205,
-      "sha256": "1A8A06AA7D9A4E6B569A13C708A4B99FC88EBC19D24E542BE577A005AA442D8E"
+      "sha256": "E6262B9F26AC1F30C11BEAB41D3A7A3E41F82253B6023BBF1ABDE3D3C3AA65E3"
     },
     {
       "path": "paper/figures/figure5_sealed.pdf",
       "bytes": 33169,
-      "sha256": "E27E96819875A6B2EEF31BFEBC29C5DC7250EF5576404AF1B532FAEB323E04EA"
+      "sha256": "9E53C8843A09FA22148D3625820D5783BE41C39E5D41A9633947173E94037C2D"
     },
     {
       "path": "paper/figures/figure6_errors.pdf",
       "bytes": 44713,
-      "sha256": "E7C959F2A7752D11F5C14367C9D1DEE6F822F4E1DC05278714DCBFD55CCF83BB"
+      "sha256": "89A40F6E549B4F4E92A467C8E20929DD22B4C0AB568259DEE4D16B6056E15C90"
     },
     {
       "path": "paper/figures/README.md",
@@ -582,7 +582,7 @@
     {
       "path": "paper/scripts/build_paper_assets.py",
       "bytes": 94653,
-      "sha256": "E8D4AD87E49616EC15D823C491BB9099945168A045EB1376C6AB0ACFB30B07AE"
+      "sha256": "CADFF4560E7D63D2820845B040AD9250A959F04A63A1092C2757C89A0B20105D"
     },
     {
       "path": "paper/scripts/monitor_minimax_progress.ps1",
@@ -611,13 +611,13 @@
     },
     {
       "path": "paper/submission/applied_intelligence_source.zip",
-      "bytes": 656363,
-      "sha256": "1E7D9D09F38CAAAD8EC85AA73CBAA2BE12CDE36DECE12ADDFEC8587F0D6DF1B6"
+      "bytes": 657078,
+      "sha256": "85659163D05FE987A752E8A7D29C24511CE75A93E6761DCFE33B22BFFAD21EB4"
     },
     {
       "path": "paper/submission/applied_intelligence_supplement.zip",
-      "bytes": 75591,
-      "sha256": "FA78972D68486B6BBDE5BF94ACA86AE1443729DB4BB824AA254A2A0D002378B8"
+      "bytes": 75592,
+      "sha256": "10920F6B9E809F03B082CF483C321EF4A23B28886946A4D4C917139A720CE0A8"
     },
     {
       "path": "paper/submission/figure1_valid_call_invalid_path_v0124.pdf",
@@ -631,28 +631,28 @@
     },
     {
       "path": "paper/submission/figure3_core_evidence.pdf",
-      "bytes": 51140,
-      "sha256": "3C42BA53C9C63F0211B3DF97EA390D0D868423244E008D03827AB7656A6B74CF"
+      "bytes": 51895,
+      "sha256": "DC87349099124305C41D436419A97817F30277D978561D01F19DF39ACB44EE4E"
     },
     {
       "path": "paper/submission/figure4_asp.pdf",
       "bytes": 33205,
-      "sha256": "1A8A06AA7D9A4E6B569A13C708A4B99FC88EBC19D24E542BE577A005AA442D8E"
+      "sha256": "E6262B9F26AC1F30C11BEAB41D3A7A3E41F82253B6023BBF1ABDE3D3C3AA65E3"
     },
     {
       "path": "paper/submission/figure5_sealed.pdf",
       "bytes": 33169,
-      "sha256": "E27E96819875A6B2EEF31BFEBC29C5DC7250EF5576404AF1B532FAEB323E04EA"
+      "sha256": "9E53C8843A09FA22148D3625820D5783BE41C39E5D41A9633947173E94037C2D"
     },
     {
       "path": "paper/submission/figure6_errors.pdf",
       "bytes": 44713,
-      "sha256": "E7C959F2A7752D11F5C14367C9D1DEE6F822F4E1DC05278714DCBFD55CCF83BB"
+      "sha256": "89A40F6E549B4F4E92A467C8E20929DD22B4C0AB568259DEE4D16B6056E15C90"
     },
     {
       "path": "paper/submission/main.pdf",
-      "bytes": 869948,
-      "sha256": "C7172F6DCA6DBB9CC6B1BADE345EB0988650ECA7645A697BD74EFC49FEAF33D0"
+      "bytes": 870709,
+      "sha256": "88FC5DC333798B660DA6A7FCCD9896594F989905ACC519DD1A1A920DF5AAC298"
     },
     {
       "path": "paper/submission/main.tex",
@@ -662,7 +662,7 @@
     {
       "path": "paper/submission/package_hashes.json",
       "bytes": 474,
-      "sha256": "3B96BE2333E15144C755C24DD132D253255C6553CBA213D44DD94D24D03B8825"
+      "sha256": "7942E0EADD17C8D13311E95F1817FDE9AF767592D23D960FCD99644678FEF133"
     },
     {
       "path": "paper/submission/package_manifest.txt",
@@ -687,7 +687,7 @@
     {
       "path": "paper/submission/VERSION.txt",
       "bytes": 10,
-      "sha256": "805E6CCF8CD1C94EAEF255F1E40233925A8F12DC30848EF0BB3C81496C83A6B1"
+      "sha256": "E23DC5720DF2705F5F7E0F1B7DA82FA6F191B73B682F5BC4A8D08393667B5EF9"
     },
     {
       "path": "paper/supplement/asp_method.md",
@@ -1012,7 +1012,7 @@
     {
       "path": "README.md",
       "bytes": 3488,
-      "sha256": "0A4CEC0990E7B151054C392665DF5F9683BD1B3AABAAE8F1C08D89D74FEA0F6D"
+      "sha256": "F2284BFA116694AD75BE98F291D6D6C22EC2B7972EDB8B43971BF7E15E4D904F"
     },
     {
       "path": "requirements-api.txt",
