@@ -3,9 +3,9 @@
 This repository accompanies:
 
 > Nianyi Wang. *The Wrong Tool Looks Right: Auditing Executable
-> Goal-Irrelevant Tools in Multi-Step Tool Use.*
+> Goal-Irrelevant Tool Use in Multi-Step LLM Agents.*
 
-Release version: `1.0.0` (manuscript `v0.13.28`).
+Release version: `1.0.0` (manuscript `v0.13.29`).
 
 A3D is a trace-level audit for multi-step LLM tool use. It holds the required
 dependency task fixed, varies the operational availability of an equal number of

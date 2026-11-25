@@ -2,8 +2,8 @@
 
 This package accompanies:
 
-> **The Wrong Tool Looks Right: Auditing Executable Goal-Irrelevant Tools
-> in Multi-Step Tool Use**
+> **The Wrong Tool Looks Right: Auditing Executable Goal-Irrelevant Tool Use
+> in Multi-Step LLM Agents**
 
 **A3D:** Affordance-Aware Audit and Diagnosis.
 
