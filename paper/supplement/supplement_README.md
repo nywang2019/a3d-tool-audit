@@ -2,8 +2,19 @@
 
 This package accompanies:
 
-> **The Wrong Tool Looks Right: Diagnosing Executable Goal-Irrelevant Tools
+> **The Wrong Tool Looks Right: Auditing Executable Goal-Irrelevant Tools
 > in Multi-Step Tool Use**
+
+**A3D:** Affordance-Aware Audit and Diagnosis.
+
+- **Journal:** Applied Intelligence
+- **Authors:** Nianyi Wang, Tiejun Wang, Weilan Wang
+- **Affiliations:** School of Mathematics and Computer Science; Key Laboratory
+  of Linguistic and Cultural Computing of Ministry of Education; Gansu
+  Provincial Engineering Research Center of Multi-modal Artificial
+  Intelligence, Northwest Minzu University, Lanzhou, China
+- **Corresponding author:** Nianyi Wang, livingsailor@gmail.com
+- **Supplementary item:** Online Resource 1
 
 ## Contents
 

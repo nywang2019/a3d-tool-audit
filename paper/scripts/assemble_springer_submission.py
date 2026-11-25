@@ -30,15 +30,14 @@ def expand_inputs(source: str) -> str:
 
 
 def main() -> None:
-    submission_figures = SUBMISSION / "figures"
-    submission_figures.mkdir(parents=True, exist_ok=True)
+    SUBMISSION.mkdir(parents=True, exist_ok=True)
 
     source = (MANUSCRIPT / "main_applied_intelligence.tex").read_text(
         encoding="utf-8"
     )
     source = source.replace(
         r"\graphicspath{{../figures/}}",
-        r"\graphicspath{{figures/}}",
+        r"\graphicspath{{./}}",
     )
     source = expand_inputs(source)
     (SUBMISSION / "main.tex").write_text(source, encoding="utf-8")
@@ -51,14 +50,14 @@ def main() -> None:
         set(re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}", source))
     )
     referenced = {Path(name).name for name in figure_names}
-    for stale in submission_figures.glob("*.pdf"):
+    for stale in SUBMISSION.glob("figure*.pdf"):
         if stale.name not in referenced:
             stale.unlink()
     for name in sorted(referenced):
         source_figure = FIGURES / name
         if not source_figure.exists():
             raise FileNotFoundError(source_figure)
-        shutil.copy2(source_figure, submission_figures / name)
+        shutil.copy2(source_figure, SUBMISSION / name)
 
     manifest = SUBMISSION / "package_manifest.txt"
     files = sorted(

@@ -14,7 +14,6 @@ $sourceStage = Join-Path $tmp "submission-source-$Timestamp"
 $supplementStage = Join-Path $tmp "submission-supplement-$Timestamp"
 
 New-Item -ItemType Directory -Force $sourceStage | Out-Null
-New-Item -ItemType Directory -Force (Join-Path $sourceStage "figures") | Out-Null
 New-Item -ItemType Directory -Force $supplementStage | Out-Null
 New-Item -ItemType Directory -Force (Join-Path $supplementStage "tables") | Out-Null
 New-Item -ItemType Directory -Force (Join-Path $supplementStage "case_studies") | Out-Null
@@ -23,7 +22,7 @@ New-Item -ItemType Directory -Force (Join-Path $supplementStage "figures") | Out
 foreach ($name in @("main.tex", "references.bib", "sn-jnl.cls", "sn-basic.bst", "VERSION.txt")) {
     Copy-Item -LiteralPath (Join-Path $submission $name) -Destination $sourceStage
 }
-Copy-Item -Path (Join-Path $submission "figures\*.pdf") -Destination (Join-Path $sourceStage "figures")
+Copy-Item -Path (Join-Path $submission "figure*.pdf") -Destination $sourceStage
 
 foreach ($name in @("dataset_card.md", "diagnostic_protocol.md", "derived_analysis.md",
         "asp_method.md",
