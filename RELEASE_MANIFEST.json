@@ -1,13 +1,13 @@
 {
   "repository": "https://github.com/nywang2019/a3d-tool-audit",
   "version": "1.0.0",
-  "manuscript_version": "v0.13.29",
-  "date": "2026-11-25",
+  "manuscript_version": "v0.13.30",
+  "date": "2026-11-27",
   "author": "Nianyi Wang",
   "orcid": "0000-0003-2587-1438",
   "code_license": "MIT",
   "data_license": "CC-BY-4.0",
-  "file_count": 519,
+  "file_count": 520,
   "files": [
     {
       "path": ".gitignore",
@@ -17,7 +17,7 @@
     {
       "path": "CITATION.cff",
       "bytes": 632,
-      "sha256": "4A5AB254D4D3254A98390368DFB95DD99CDC7806DC92391A1BB9BB7E668D38AD"
+      "sha256": "BE5FF9AAC1E7CA80A3E6C99CCAF760F7702447011589EB96E887EF3F520A220A"
     },
     {
       "path": "configs/cross_vendor_pilot.yaml",
@@ -521,8 +521,8 @@
     },
     {
       "path": "paper/manuscript/main_applied_intelligence.tex",
-      "bytes": 51633,
-      "sha256": "72A760E7CB3DAE12FB50B9F697E003205A59C423E3EA5065E2D7F34E71CE0183"
+      "bytes": 45348,
+      "sha256": "C9748EE156C3A47A332C977BCA9F49FD16F5D32987D98D547694C6C01072A25F"
     },
     {
       "path": "paper/manuscript/references.bib",
@@ -611,13 +611,13 @@
     },
     {
       "path": "paper/submission/applied_intelligence_source.zip",
-      "bytes": 657081,
-      "sha256": "EEA1A4E9DCB31CF856755A74776CDE6AA5A1BD9DE8B1D6D678C6E44D1491F62E"
+      "bytes": 654940,
+      "sha256": "A6B4424D9E5E31DBB9C65DD0BCE092D5418A607A5EBE1BE611279631B8851B13"
     },
     {
       "path": "paper/submission/applied_intelligence_supplement.zip",
-      "bytes": 75598,
-      "sha256": "10E81C95A8C63D32C72BCB342742BE5B956FE3892DBF63937ACA857635195BCA"
+      "bytes": 75401,
+      "sha256": "0DC573C27226A58E18A828B9277631BF1B6040DA63AEAFD3FACD911247322FCE"
     },
     {
       "path": "paper/submission/figure1_valid_call_invalid_path_v0124.pdf",
@@ -651,23 +651,23 @@
     },
     {
       "path": "paper/submission/main.pdf",
-      "bytes": 870787,
-      "sha256": "199F92342B33DD6AE68056E7A35199D38017547D63626F6324075A75557EE83A"
+      "bytes": 861191,
+      "sha256": "E2F5BF03C93170A6ED66EC94908CE873838FD71B27216F405CFEB74B8B1604F2"
     },
     {
       "path": "paper/submission/main.tex",
-      "bytes": 57959,
-      "sha256": "5A2CB51AA66F5E6A31A62C92914DD33F39AE613E689CA7138803D0C7A8B1F584"
+      "bytes": 51406,
+      "sha256": "EAB16029BABFA8BE1069844471EB42395978426209474DF3BCCE4F61C24ADB19"
     },
     {
       "path": "paper/submission/package_hashes.json",
       "bytes": 474,
-      "sha256": "5F8789F20B7D23E3B47AB6AA17F3EACB5408B9628B7D2F199FDDBF4FC1A05E81"
+      "sha256": "A5E6C69F23DB3BC0FC74EC90C335DD183F5878E689F4BFD8DC6DF781457361F5"
     },
     {
       "path": "paper/submission/package_manifest.txt",
-      "bytes": 503,
-      "sha256": "04D149882B0F0DB7D1376DDA36DE72EA5921E4CC716D89425BA394447415AF6C"
+      "bytes": 236,
+      "sha256": "C480926A1EF37A7FE8394AC4CA7B1CFAE40FDD872836EC6BEA6DD52405ADC63D"
     },
     {
       "path": "paper/submission/references.bib",
@@ -685,9 +685,14 @@
       "sha256": "F3C2CEC03A7341E5EDB7FB66C90163DEBEA858E5D7D15EE991858A5461815C8A"
     },
     {
+      "path": "paper/submission/supplement_README.md",
+      "bytes": 1364,
+      "sha256": "D5BC90138983077394769598D5113E8BB00C4B2F6A87B5DEA43A56D04C502691"
+    },
+    {
       "path": "paper/submission/VERSION.txt",
       "bytes": 10,
-      "sha256": "772E67102E6F046D6E76997FB3AC1F376312BDDC6AE4693EE0621F32EAE8DF9B"
+      "sha256": "F8E4E35FBDD7EA18B39AF99FCDD0BAA025F8C6CA35470F77417DD780CBDE983C"
     },
     {
       "path": "paper/supplement/asp_method.md",
@@ -886,18 +891,18 @@
     },
     {
       "path": "paper/tables/experiment_design.csv",
-      "bytes": 432,
-      "sha256": "D027076E67B7B66FF01172C9884A901B82DE057163A01D779448A7EE4F7C3F73"
+      "bytes": 298,
+      "sha256": "6484A2A7C1AF2131ACFBECA272F7A6AEB2F940065215DCF0D85F475D4621269C"
     },
     {
       "path": "paper/tables/experiment_design.md",
-      "bytes": 555,
-      "sha256": "45286B0D748068F6914A6C842A4837088E5A1A22611E2533B3A95EEB17CD2B2E"
+      "bytes": 385,
+      "sha256": "DE969924EC6C4D5277DBD10452BF71DAC5F9A79719DDAA39E5102A28A2740D53"
     },
     {
       "path": "paper/tables/experiment_design.tex",
-      "bytes": 1269,
-      "sha256": "1CBC091E1A4EBD5357B0359A375B85CB830B87F9E090FFC7FD6FA4A7754EDC8D"
+      "bytes": 1102,
+      "sha256": "91B81A7DD7828FDAA15AF4E2ED6296F04AEFA4F68488649BE0432C7EBC8409C9"
     },
     {
       "path": "paper/tables/interventions.csv",
@@ -1011,8 +1016,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3493,
-      "sha256": "C9450B7D61B4EDE9AC534568066A4D3D8D840E02E377F932809D2CEE420E8677"
+      "bytes": 3388,
+      "sha256": "F7B36065881B80C871EB94E77D74ADD12336D99225243573BB1D8093A980EB7B"
     },
     {
       "path": "requirements-api.txt",

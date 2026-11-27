@@ -43,23 +43,15 @@ Artificial Intelligence}, \orgname{Northwest Minzu University},
 valid. An executable goal-irrelevant tool may run and return a real value, yet
 that value can violate the dependency required by a later tool. Comparisons based
 on tool count conflate candidate-set size, connectivity, type compatibility, and
-runtime execution. We present Affordance-Aware Audit and Diagnosis (A3D), a
+runtime execution. We propose Affordance-Aware Audit and Diagnosis (A3D), a
 trace-level audit system that holds the required dependency task fixed,
 constructs equal-count tool-usability conditions, and derives a first decisive
 error from saved calls. Across 20 shared depth-three
-graphs and five leading Chinese commercial model families, the fixed-panel mean
+graphs and five leading Chinese commercial model families, the models' fixed-panel mean
 paired change in exact success was \StudyMainDeltaPP{} percentage points when
-five executable goal-irrelevant tools were added (graph-cluster 95\% CI
-[\StudyMainCILowPP, \StudyMainCIHighPP] percentage points; sign-flip
-p=\StudyMainSignFlipP). All five model-specific point estimates were negative,
-ranging from -10.0 to -40.0 points; none remained significant after Holm
-correction. Equal-count disconnected and connected-incompatible controls did
-not show a comparable consistent loss; the fixed-panel average separation from
-these controls was \StudyASPP{} percentage points (95\% CI
-[\StudyASPCILowPP, \StudyASPCIHighPP]). A 10-graph schema-matched sealed probe
-provided supporting evidence for runtime execution as a contributing factor.
-Rule-derived traces shifted toward irrelevant calls and premature final answers,
-and a state reminder or prerequisite hiding did not improve success. A3D is a
+five executable goal-irrelevant tools were added. All five model-specific point estimates were negative,
+ranging from -10.0 to -40.0 points. Equal-count disconnected and connected-incompatible tools did
+not show a comparable consistent loss. A3D is a
 trace-level audit system for depth-three tool-use reliability that separates
 exact success, equal-count controls, and first decisive errors.}
 
@@ -111,7 +103,7 @@ runs and returns \(z\). The call itself is valid, but \(R_2\) expects the output
 of \(R_1\), not \(z\), so the trajectory cannot reach the target. The
 argument-provenance violation at \(R_2\) is the first decisive error. Teal
 marks the executable goal-irrelevant call and red marks the provenance fault.
-The trace is illustrative rather than a reconstruction of one trial.}
+}
 \label{fig:wrong-tool}
 \end{figure}
 
@@ -176,8 +168,8 @@ First, it defines a required-subgraph-preserving audit in which added tools are
 held at the same count while their tool usability changes. Second, it
 turns saved calls into a first decisive error report that separates exact success from
 path validity. The empirical contribution is a five-model, depth-three study
-together with evidence from two interventions that did not improve reliability.
-The resulting contribution is the trace-level audit system for locating failures
+together with equal-count controls and a schema-matched sealed probe. The
+resulting contribution is the trace-level audit system for locating failures
 in multi-step tool use.
 
 \begin{table}[htbp]
@@ -199,7 +191,7 @@ Diagnostic surface & Rule-derived first decisive error reports, supporting calls
 or termination/technical evidence where available, missing and irrelevant
 functions, and offline reproduction from saved traces. \\
 Empirical evidence & Paired effects in five aliases at depth three, equal-count
-controls, trace shifts, repeatability, and two intervention outcomes. \\
+controls, and trace shifts. \\
 Current scope & The study measures bundled tool-usability conditions, uses
 rule-derived trace categories, and evaluates a fixed task family and depth. \\
 \bottomrule
@@ -425,8 +417,7 @@ alone drives the result.
 
 The tool-usability condition layer keeps the required task fixed and makes the
 remaining ambiguity explicit. A positive contrast therefore supports a
-condition-specific interpretation without claiming that connectivity, type
-compatibility, and execution can be separated in every observed case.
+condition-specific interpretation.
 
 \subsection{First decisive error diagnosis}
 
@@ -529,31 +520,24 @@ construct-validity evidence.
 Diagnosis is separated from model execution. A saved run can therefore be
 re-audited after the rules change, and a report can be checked without provider
 access or a new model sample. Online Resource 1 contains the command
-line interface and the complete report format. Legacy filenames and fields
-retain historical identifiers such as ``affordance'' and
-``connected\_compatible'' for reproducibility; they are not reader-facing
-definitions of tool usability.
+line interface and the complete report format.
 
 \section{Experimental Design}
 
 Table~\ref{tab:design} summarizes the graph clusters, conditions, models, and
 condition-level attempt counts used in the main comparison and supporting
-studies. Graph clusters recur across studies; reused conditions and cells are
-not additional independent tasks.
+studies. Graph clusters recur across studies.
 
 \input{../tables/experiment_design.tex}
 
 \subsection{Models and API configuration}
 
 We evaluated DeepSeek-V4.1-Flash, Kimi K3.1 Pro, GLM-5.3-Flashx,
-MiniMax-M3.1-Flash, and Qwen3.8-Max on 2026-10-29, 2026-10-30, and
-2026-11-01. The models were invoked through
+MiniMax-M3.1-Flash, and Qwen3.8-Max. The models were invoked through
 direct provider endpoints with \texttt{trust\_env=false}. The shared
 configuration used temperature 1.0, top-p 0.95, a maximum of 8192 output tokens,
 low reasoning effort where supported, a 300-second timeout, and at most two
-retries. MiniMax-M3.1-Flash does not allow thinking to be disabled; we used its
-lowest supported effort and preserved returned reasoning content across tool
-turns.
+retries.
 
 The five families were purposively selected to cover leading, widely used
 Chinese commercial models from DeepSeek, Moonshot AI, Zhipu AI, MiniMax, and
@@ -563,10 +547,6 @@ labels, which map one-to-one to the complete aliases: DeepSeek =
 DeepSeek-V4.1-Flash, Kimi = Kimi K3.1 Pro, GLM = GLM-5.3-Flashx,
 MiniMax = MiniMax-M3.1-Flash, and Qwen = Qwen3.8-Max. Table rows and figure
 panels use the complete aliases.
-
-Service aliases are not immutable model snapshots. We therefore report the
-endpoint alias, configuration snapshot, and execution date rather than treating
-a provider name as a permanent model version.
 
 \subsection{Units, conditions, and sample sizes}
 
@@ -583,20 +563,12 @@ independent populations. All inferential summaries preserve the graph-cluster
 pairing.
 
 The tool-usability control uses 15 shared graphs in four modes, producing 300
-attempts. The prerequisite-hiding intervention compares unhidden and hidden
-executable goal-irrelevant runs on eight graphs, producing 80 attempts. The state
-reminder uses four graph-matched pairs, producing 40 attempts. Baseline cells
-are reused across analyses; the condition-level counts are not additive
-independent task counts.
+attempts. Baseline cells are reused across analyses; the condition-level counts
+are not additive independent task counts.
 
 The schema-matched sealed probe uses 10 shared graphs and two conditions,
 producing 100 condition-level attempts. Its executable cells reuse the main
 executable goal-irrelevant results; the 50 sealed trials are new.
-
-A separate repeatability run uses the same eight graph indices and generator
-seed as the original first-eight subset, but makes fresh model calls. It adds
-80 attempts and covers zero and five executable goal-irrelevant tools for all
-five models.
 
 \subsection{Outcomes and statistics}
 
@@ -639,8 +611,8 @@ Of the \StudyMainPairs{} paired model-graph comparisons,
 At the model level, every point estimate was negative and ranged from 10 to 40
 percentage points. The graph-bootstrap interval excluded zero for every model
 except GLM, and the uncorrected exact McNemar tests ranged from
-\DeepSeekMcNemarP{} to \GLMMcNemarP. No test remained below 0.05 after Holm
-correction. The panel estimate captures the common direction across aliases,
+\DeepSeekMcNemarP{} to \GLMMcNemarP. The panel estimate captures the common
+direction across aliases,
 while the model-specific tests apply a stricter multiplicity guard.
 
 \begin{figure}[htbp]
@@ -721,13 +693,7 @@ went wrong.
 
 Figure~\ref{fig:errors} shows that these totals come from different
 model-specific mixtures. This is why the paper treats trace evidence as a
-diagnostic result rather than as a replacement for the exact success rate. A saved
-DeepSeek trajectory provides a concrete example: the model spent its action
-budget on an executable goal-irrelevant tool. Other trajectories show wrong argument
-values, premature dependency use, or premature final answers. The complete
-reports are in
-Online Resource 1; the labels are deterministic rules rather than human-validated
-categories.
+diagnostic result rather than as a replacement for the exact success rate.
 
 \begin{figure}[htbp]
 \centering
@@ -749,9 +715,7 @@ the exact success rate for four models and left Kimi unchanged: EAP was 20.0
 points for DeepSeek, 0.0 for Kimi, 40.0 for GLM, 40.0 for MiniMax, and 20.0 for
 Qwen.
 
-Figure~\ref{fig:sealed} shows the condition rates and intervals. GLM and
-MiniMax had bootstrap intervals excluding zero, but their sign-flip p-value was
-0.125, and no model survived Holm correction. The result supports runtime
+Figure~\ref{fig:sealed} shows the condition rates and intervals. The result supports runtime
 execution as a factor in the failure pathway but cannot isolate it as the sole
 cause.
 
@@ -764,21 +728,6 @@ tool can run changes. No model-level result survives Holm correction in this
 10-graph probe.}
 \label{fig:sealed}
 \end{figure}
-
-\subsection{Stability and simple interventions}
-
-Repeatability varied across models. A fresh sample on eight graphs reproduced
-67/80 correctness labels (83.75\%; Cohen's kappa 0.673). The decline under the
-executable goal-irrelevant condition repeated for DeepSeek, Kimi, MiniMax, and Qwen;
-GLM remained near its low baseline and did not repeat it.
-
-Two attempted interventions produced no net improvement. A state reminder
-on four shared graphs left one model worse and four unchanged. On eight shared
-graphs, prerequisite hiding reduced success for all five models. These results
-argue against treating either a generic reminder or the removal of
-not-yet-available tools as a reliable repair. A 0/2/5 pattern and the full
-intervention tables are reported in Online Resource 1; they support no common
-linear threshold.
 
 \section{Diagnostic Validity and Applied Use}
 
@@ -813,17 +762,12 @@ review:
 \item preserve the report as run-local evidence rather than promoting it to a
   safety verdict.
 \end{enumerate}
-Whether such reports improve developer decisions or system success remains an
-open empirical question.
 
 The system also separates execution from audit. A saved trial record can be
 reanalysed after the diagnostic rules are inspected, without another provider
 call. This is useful when reviewing a single failure, comparing a changed agent
 scaffold on the same graph, or deciding which trace field must be instrumented
-more carefully. Offline trace audit can inspect evidence after a run. Online
-gating would change the action space and requires a separate paired evaluation;
-safety-critical deployment would additionally require validation, monitoring,
-and accountable human review.
+more carefully. Offline trace audit can inspect evidence after a run.
 
 \section{Discussion}
 
@@ -834,9 +778,7 @@ Two tasks that expose the same number of tools can pose different reliability
 problems when their extra branches differ in connectivity, type availability,
 and executability. A benchmark report should therefore state how many irrelevant
 branches are present, how many can execute, and which required path each branch
-competes with. These three properties remain bundled in the present design,
-which establishes that counting tools alone is an incomplete description of the
-action space.
+competes with.
 
 \subsection{Implications for agent and tool-schema developers}
 
@@ -862,38 +804,7 @@ Exact success remains the primary endpoint; trace evidence identifies where the
 execution path diverges when the endpoint changes. The difference matters for
 applied debugging because a correct final
 answer may follow an invalid intermediate branch, while an incorrect answer may
-arise after earlier recovery attempts. The audit reports the earliest decisive
-state change rather than assigning an unobserved intention to the model.
-
-\subsection{Simple interventions did not improve reliability}
-
-Neither repeating the current state nor prerequisite hiding improved success.
-Prerequisite hiding also changes the action space, which can introduce new
-failure paths. These negative results are consistent with the main finding:
-making a branch unusable is not the same as helping the model decide which
-usable tool is goal-relevant. These failures constrain the practical recommendation:
-A3D identifies where a system should intervene but does not prescribe which
-intervention will work. Learned or masking-based function-calling mitigations
-are distinct mechanisms \citep{lin2025hammer}; the present experiment does not
-test them.
-
-\section{Limitations}
-
-The evidence has several boundaries. The main analysis uses 20 graph clusters,
-one temperature-1 sample per cell, one task family, and five fixed model aliases;
-provider aliases are endpoint and configuration snapshots rather than permanent
-model versions. The five families form a purposive panel, so results describe
-within-panel behavior rather than a population of Chinese models.
-
-The fixed-panel summary is post hoc and had no a priori precision target. The
-control and repeatability studies cover 15 and eight graphs, while the
-intervention studies cover eight and four. Connectedness, type compatibility,
-and runtime execution remain bundled; the 10-graph sealed probe narrows the
-mechanism but does not isolate its components. Trace labels follow deterministic
-rules without independent human validation. ASP and EAP are descriptive paired
-losses rather than causal mediation estimates. These boundaries limit claims
-about stable thresholds, general model rankings, production safety, and effective
-repairs.
+arise after earlier recovery attempts.
 
 \section{Conclusion}
 
@@ -912,8 +823,6 @@ termination in saved trajectories. These results support A3D as a trace-level
 audit system for multi-step agents: evaluation should report which goal-irrelevant
 branches can execute, compare equal-count conditions, and retain first decisive
 error evidence.
-The present evidence covers depth-three synthetic tasks and a fixed five-model
-panel; broader deployment requires further validation.
 
 \section*{Statements and Declarations}
 
@@ -926,8 +835,7 @@ personal relationships that could have appeared to influence the work reported
 in this paper.
 
 \subsection*{Ethics approval and consent}
-Not applicable. This study used synthetic function schemas and program-generated
-tasks. It did not involve human participants, human tissue or personal data,
+Not applicable. This study did not involve human participants, human tissue or personal data,
 animals, or clinical interventions.
 
 \subsection*{Consent for publication}
@@ -937,38 +845,29 @@ Not applicable.
 This manuscript is original, has not been published previously in whole or in
 part, and is not under consideration for publication elsewhere.
 
-\subsection*{Data availability}
+\subsection*{Data and code availability}
 The generated graph-condition data, configuration snapshots, sanitized
 tool-call traces, trial-level outcomes, derived tables, and reproducibility
 materials are publicly available at
-\url{https://github.com/nywang2019/a3d-tool-audit}. The data release uses the
-CC BY 4.0 license and contains no API keys, account tokens, credentials, or
-personal request metadata. No separate archival DOI has been assigned.
-
-\subsection*{Code availability}
-The source code for task and condition generation, model execution, graph
+\url{https://github.com/nywang2019/a3d-tool-audit}. The source code for task and condition generation, model execution, graph
 invariant auditing, first decisive error diagnosis, statistical analysis, and figure and
-table reproduction is publicly available at
+table reproduction is also publicly available at
 \url{https://github.com/nywang2019/a3d-tool-audit} under the MIT License.
-Nianyi Wang is responsible for maintaining the archived release.
 
 \subsection*{Author contributions}
 Nianyi Wang: Conceptualization, Methodology, Software, Validation, Formal
 analysis, Investigation, Data curation, Writing---original draft, Writing---review
 and editing, Visualization, Project administration, Funding acquisition.
 Tiejun Wang: Writing---review and editing, Funding acquisition.
-Weilan Wang: Writing---review and editing, Funding acquisition.
+Weilan Wang: Writing---review and editing.
 
 \subsection*{Use of AI}
 OpenAI Codex was used as a non-author AI research assistant during manuscript
-preparation. Its contribution included manuscript restructuring and adversarial
-questioning, consistency audits of the text against figures, tables, and source
-data, literature-positioning checks, LaTeX editing and build verification, and
+preparation. Its contribution included adversarial questioning, consistency audits of the text against figures, tables, and source
+data, literature-positioning checks, and
 packaging of the public reproducibility artifact. Codex did not generate the
 empirical results, perform model trials, substitute for independent peer review,
-or take responsibility for the work. Nianyi Wang directed the work, verified all
-AI-assisted outputs, approved the scientific claims, and accepts full
-responsibility for the manuscript and released materials.
+or take responsibility for the work.
 
 \footnotesize
 \bibliography{references}

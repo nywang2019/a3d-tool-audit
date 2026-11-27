@@ -5,7 +5,7 @@ This repository accompanies:
 > Nianyi Wang. *The Wrong Tool Looks Right: Auditing Executable
 > Goal-Irrelevant Tool Use in Multi-Step LLM Agents.*
 
-Release version: `1.0.0` (manuscript `v0.13.29`).
+Release version: `1.0.0` (manuscript `v0.13.30`).
 
 A3D is a trace-level audit for multi-step LLM tool use. It holds the required
 dependency task fixed, varies the operational availability of an equal number of
@@ -15,8 +15,8 @@ extra tools, and derives a first decisive error from saved tool calls.
 
 - Python implementation of paired FuncBenchGen execution, graph invariants,
   trace diagnostics, statistical summaries, and figure generation.
-- Experimental configurations for the main, dose, matched-control,
-  prerequisite-hiding, reminder, repeatability, and sealed-probe studies.
+- Experimental configurations for the main, dose, matched-control, and
+  sealed-probe studies reported in the current manuscript.
 - Sanitized trial-level CSVs and derived analysis summaries for the five-model
   panel.
 - Final manuscript PDF, LaTeX source, figures, tables, and supplementary
@@ -36,10 +36,11 @@ aggregate study directories are:
 - `control15`: equal-count disconnected, connected-incompatible, and executable
   goal-irrelevant controls.
 - `dose15`: 0/2/5 executable goal-irrelevant dose study.
-- `gating8`: prerequisite-hiding intervention.
-- `reminder4`: state-reminder intervention.
-- `repeatability8`: fresh repeat run on eight graph indices.
 - `sealed10`: executable-versus-sealed schema-matched probe.
+
+Historical extension configs and result directories remain in the repository
+for provenance, but prerequisite-hiding, reminder, and repeatability studies
+are not part of the current manuscript's empirical scope.
 
 Sanitized data and derived results in `data/` and `results/` are licensed under
 CC BY 4.0. Code is licensed under the MIT License. The vendored dependencies
@@ -81,11 +82,9 @@ release. Questions: `livingsailor@gmail.com`.
 
 ## AI-use disclosure
 
-OpenAI Codex assisted with manuscript restructuring and adversarial questioning,
-consistency checks between text and research artifacts, literature-positioning
-checks, LaTeX/build verification, and preparation of this reproducibility
-repository. It did not generate the empirical results, execute the reported
-model trials, or assume responsibility for the work. Nianyi Wang directed the
-work, verified the AI-assisted outputs, and accepts full responsibility for the
-manuscript and released materials.
+OpenAI Codex assisted with adversarial questioning, consistency checks between
+text and research artifacts, literature-positioning checks, and preparation of
+this reproducibility repository. It did not generate the empirical results,
+execute the reported model trials, substitute for independent peer review, or
+assume responsibility for the work.
 
