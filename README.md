@@ -26,6 +26,14 @@ extra tools, and derives a first decisive error from saved tool calls.
 The release does not contain API keys, provider credentials, authentication
 headers, personal request metadata, or unprocessed provider response dumps.
 
+Public-release safety is checked by `scripts/check_public_release.py`. The
+check rejects tracked credential files, private submission materials, raw
+provider-response directories, caches, and high-confidence credential patterns.
+It also runs automatically in GitHub Actions.
+
+`scripts/check_git_history.py` audits all reachable commits for private paths
+and credential patterns before a public release history is finalized.
+
 ## Data
 
 `data/trials/` contains convenience copies of the sanitized trial records, and

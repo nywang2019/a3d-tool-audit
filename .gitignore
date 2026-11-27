@@ -1,4 +1,6 @@
 .env
+.env.*
+!.env.example
 .venv/
 __pycache__/
 *.py[cod]
@@ -8,6 +10,20 @@ __pycache__/
 artifacts/
 results/*/raw/
 results/*/*/raw/
+**/replay_raw/
 tmp/
 *.log
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Author-specific submission and portal materials
+paper/submission/author_inputs_needed.md
+paper/submission/cover_letter*
+paper/submission/portal_text*
+paper/submission/submission_bundle*
+paper/submission/submission_checklist*
+paper/submission/submission_fields*
+paper/submission/upload-ready*/
 
